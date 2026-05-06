@@ -1000,7 +1000,7 @@
             </div>
             <div class="slide-accordion">
               <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">Global System Integrator</div>
+                <div class="slide-case-title" style="font-size:2cqw;">Global System Integrators</div>
                 <span class="slide-accordion-icon">+</span>
               </div>
               <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
@@ -1183,6 +1183,7 @@
               <label class="slide-checklist-item"><input type="checkbox"><span>Confirm and target a single high-impact agent use-case.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Prepare demo of agent simulation of the agent use-case in DEV/QA/STAGING</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Setup Agent connection, workflow graph, and knowledge bases.</span></label>
+              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Confirm highest priority metrics.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Request test cases to create Test Sets.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Create 3-5 Personas.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Set up Human Review workflows.</span></label>
@@ -1194,12 +1195,13 @@
               <label class="slide-checklist-item"><input type="checkbox"><span>Gather training and product feedback.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Partner with teams to build additional high-value primary use-cases in DEV/QA/STAGING environments.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Have engineering teams independently run simulations while refining workflows/conversation scripts and metrics.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Build templates to set up regression tests for the most critical use-cases, integrate tracing and simulations into CI/CD.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Build templates to set up regression tests for the most critical use-cases, integrate tracing and production-like simulations into CI/CD.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Determine which core use-cases should undergo Human Review.</span></label>
             </div>
             <div class="slide-checklist-panel" data-step="5" style="display:none;">
+              <label class="slide-checklist-item"><input type="checkbox"><span>Migrate core simulation use-cases to production.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Set up alerts and monitors for production agents to determine potential failure points.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Compare production telemtry against simulation benchamrks.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Compare production telemetry against simulation benchamrks.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Construct a data-driven report showing what was uncovered in simulations, opportunities in production workflows.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Provide support and training on how to leverage production issues to improve simulations.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Present metrics that support improvements of initial business objectives.</span></label>
@@ -1312,14 +1314,31 @@
             </div>
           </div>
           <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Domain Quick Reference</div>
+            <div class="slide-case-title">Internal Quick Reference Guide</div>
             <div id="domain-personas-panel" style="margin-top:1.5cqw;">
-              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Short-Term:</strong> Catalog most common personas/metrics across domains, allow for Coval deployment teams to quickly access playbook information via query.</div>
+              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Short-Term:</strong> Catalog most common personas/metrics across deployments (extract through call notes), allow for Coval GTM teams to quickly access playbook information via query.</div>
               <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Long-Term:</strong> Run clustering analyses or leverage supervised learning techniques to determine which personas and metrics across past deployments lead to high usage patterns and perform best for specific metrics and use-cases.</div>
-              <div class="slide-case-title" style="font-size:1.6cqw; margin-bottom:0.5cqw;">Domain Persona Example: Financial Services</div>
-              <div class="slide-case-desc">&#9656; Frustrated customer disputing a fraudulent charge</div>
-              <div class="slide-case-desc">&#9656; First-time loan applicant confused about requirements</div>
-              <div class="slide-case-desc">&#9656; High-net-worth client requesting urgent transfer</div>
+              <div class="slide-accordion">
+                <div class="slide-accordion-header" style="margin-top:1.5cqw;">
+                  <div class="slide-case-title" style="font-size:1.6cqw;">Domain Personas: Financial Services</div>
+                  <span class="slide-accordion-icon">+</span>
+                </div>
+                <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
+                <div class="slide-accordion-body" style="display:none;">
+                  <div class="slide-case-desc">&#9656; Frustrated customer disputing a fraudulent charge</div>
+                  <div class="slide-case-desc">&#9656; First-time loan applicant confused about requirements</div>
+                  <div class="slide-case-desc">&#9656; High-net-worth client requesting urgent transfer</div>
+                </div>
+              </div>
+              <!-- <div class="slide-accordion">
+                <div class="slide-accordion-header" style="margin-top:1.5cqw;">
+                  <div class="slide-case-title" style="font-size:1.6cqw;">Standard Metrics</div>
+                  <span class="slide-accordion-icon">+</span>
+                </div>
+                <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
+                <div class="slide-accordion-body" style="display:none;">
+                </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -1373,7 +1392,7 @@
             <div class="slide-case-title" style="font-size:2cqw; margin-top:1.5cqw;">Process</div>
             <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
             <div class="slide-case-desc">&#9656; Integrate ServiceNow infrastructure team members into subsequent ServiceNow deployments.</div>
-            <div class="slide-case-desc">&#9656; Leverage Domain Quick Reference suggestions to help scale deployments.</div>
+            <div class="slide-case-desc">&#9656; Leverage Quick Reference Guide suggestions to help scale deployments.</div>
           </div>
           <div class="slide-case slide-case-toponly">
             <div class="slide-case-title">Minor Improvements</div>
