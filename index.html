@@ -21,7 +21,7 @@
   }
   #logo-link {
     position: absolute;
-    top: 39px;
+    top: 52px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -35,7 +35,7 @@
     opacity: 0.7;
   }
   #logo {
-    height: 62px;
+    height: 36px;
   }
 
   /* Pages */
@@ -793,10 +793,10 @@
       height: 24px;
     }
     #logo-link {
-      top: 15px;
+      top: 20px;
     }
     #logo {
-      height: 31px;
+      height: 20px;
     }
     .page {
       padding-top: 60px;
@@ -865,7 +865,7 @@
 <body>
   <canvas id="wave-bg"></canvas>
   <a href="#home" id="logo-link">
-    <img id="logo" src="public/COVAL Logo.png" alt="COVAL">
+    <img id="logo" src="public/Coval Logo.svg" alt="COVAL">
   </a>
 
   <!-- Page: Home -->
@@ -890,14 +890,15 @@
                   <div class="slide-case-desc">&#9656; In-Person Events (Hackathons, Happy Hours, etc.)</div>
                   <div class="slide-case-desc">&#9656; Limited Social Media (e.g., Brooke's posts, Coval LinkedIn/X)</div>
                   <div class="slide-case-desc">&#9656; Word of Mouth</div>
+                  <div class="slide-case-desc">&#9656; Landing page updates (enterprise customer logos, customer testimonials, etc.)</div>
+                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Coval documents are discoverable by agents (in .md)</div>
                 </div>
                 <div class="slide-case slide-case-toponly">
                   <div class="slide-case-title">Future Ideas</div>
                   <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Advertising campaigns (across different forms of media)</div>
-                  <div class="slide-case-desc">&#9656; Expand social media authority (LinkedIn, X, etc.), newsletter, podcast (other forms of content distribution)</div>
+                  <div class="slide-case-desc">&#9656; Expand content distribution channels and authority: social media (LinkedIn, X, etc.), newsletter, podcast, etc.</div>
                   <div class="slide-case-desc">&#9656; Domain-specific webinars</div>
                   <div class="slide-case-desc">&#9656; Observability event conference exhibitions (e.g., LangChain Interrupt)</div>
-                  <div class="slide-case-desc">&#9656; Landing page updates (enterprise customer logos, customer testimonials, etc.)</div>
                 </div>
               </div>
             </div>
@@ -927,7 +928,6 @@
                 </div>
                 <div class="slide-case slide-case-toponly">
                   <div class="slide-case-title">Future Ideas</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Improve agent discovery</div>
                   <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Provide simulation credits program for startups / SMB</div>
                   <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Build integration ecosystem and extensibility to other apps</div>
                   <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Expand product features (improve onboarding, tutorial experience, multilingual capability, etc.)</div>
@@ -985,19 +985,20 @@
               <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
               <div class="slide-accordion-body" style="display:none;">
                 <div class="slide-case-desc">&#9656; <a href="https://www.zendesk.com/" target="_blank" style="color:#0A1F3B;">Zendesk</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://www.kustomer.com/" target="_blank" style="color:#0A1F3B;">Kustomer</a></div>
                 <div class="slide-case-desc">&#9656; <a href="https://www.usepylon.com/" target="_blank" style="color:#0A1F3B;">Pylon</a></div>
               </div>
             </div>
             <div class="slide-accordion">
               <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">ISV Ecosystems</div>
+                <div class="slide-case-title" style="font-size:2cqw;">ISV Ecosystems & Frameworks</div>
                 <span class="slide-accordion-icon">+</span>
               </div>
               <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
               <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; Zoom &#10003;</div>
-                <div class="slide-case-desc">&#9656; Cisco &#10003;</div>
+                <div class="slide-case-desc">&#9656; Zoom, Cisco, PipeCat, Retell &#10003;</div>
+                <div class="slide-case-desc">&#9656; Twilio</div>
+                <div class="slide-case-desc">&#9656; Vonage</div>
+                <div class="slide-case-desc">&#9656; LiveKit</div>
               </div>
             </div>
             <div class="slide-accordion">
@@ -1022,13 +1023,13 @@
         <div class="slide-toggle-wrap" style="margin-top:2.5cqw;">
           <div class="slide-toggle" id="role-toggle">
             <div class="slide-toggle-option active" data-target="now">Now</div>
-            <div class="slide-toggle-option" data-target="future">Future</div>
+            <div class="slide-toggle-option" data-target="future">Scaled</div>
             <div class="slide-toggle-slider"></div>
           </div>
           <div class="slide-toggle-content">
             <div class="slide-toggle-panel active" id="toggle-now">
               <div style="display:flex; align-items:center; gap:1.5cqw;">
-                <div class="slide-case-title" style="font-size:3cqw;">Forward Deployed Engineer</div>
+                <div class="slide-case-title" style="font-size:3cqw;">Deployment Strategist</div>
                 <div class="slide-dropdown" id="fde-dropdown">
                   <div class="slide-dropdown-selected">Enterprise</div>
                   <div class="slide-dropdown-arrow"></div>
@@ -1040,10 +1041,10 @@
                 </div>
               </div>
               <div class="slide-dropdown-desc active" data-desc="enterprise" style="margin-top:1cqw">
-                <div class="slide-case-desc" style="font-size:1.8cqw;">Own the discovery of enterprise client operational workflow and technical implementation needs to drive pilot adoption and engagement of Coval platform to resolve customer pain points. Pair with a Coval Engineer if needed to extend Coval platform features to ensure technical success.</div>
+                <div class="slide-case-desc" style="font-size:1.8cqw;">Own the discovery of enterprise client operational workflow and technical implementation needs to drive pilot adoption and engagement of Coval's platform to resolve customer pain points. Pair with a Coval Forward Deployed Engineer if needed to extend Coval platform features to ensure technical success.</div>
               </div>
               <div class="slide-dropdown-desc" data-desc="mid-market" style="margin-top:1cqw; display:none;">
-                <div class="slide-case-desc" style="font-size:1.8cqw;">Serve as a technical and architectural advisor to mid-market teams, guiding them through the pre-observability phase. Partner with the teams to identify high-ROI use-cases and bridge knowledge gaps. Once the teams are operationally ready, these teams can be converted to customers.</div>
+                <div class="slide-case-desc" style="font-size:1.8cqw;">Serve as an operational advisor to mid-market teams, guiding them through the pre-observability phase. Partner with the teams to identify high-ROI use-cases and bridge knowledge gaps. Once the teams are operationally ready, these teams can be converted to customers.</div>
               </div>
               <div class="slide-dropdown-desc" data-desc="internal" style="margin-top:1cqw; display:none;">
                 <div class="slide-case-desc" style="font-size:1.8cqw;">Build internal workflows, documentation, and best practices to maximize client utilization and scale future deployments.</div>
@@ -1074,7 +1075,7 @@
                 </div>
                 <div class="slide-row">
                   <div class="slide-row-title">Agent Architect</div>
-                  <div class="slide-row-desc">Partner directly with mid-market clients to help build and deploy a production agent at little to no cost. This would be predicated on Coval moving up the stack and providing an out-of-the-box agent service to supplement existing customer service needs.</div>
+                  <div class="slide-row-desc">Partner directly with mid-market clients and agent platform teams to build and deploy a production agent at little to no cost _.</div>
                 </div>
               </div>
               <div class="slide-stacked-rows" id="rows-internal" style="display:none;">
@@ -1093,7 +1094,7 @@
               </div>
             </div>
             <div class="slide-toggle-panel" id="toggle-future" style="display:none;">
-              <div class="slide-case-desc" style="margin-bottom:3cqw; font-size:1.8cqw;"><strong>Scaling Future Deployments:</strong> Have dedicated forward-deployed pods where a Forward Deployed Engineer can be matched with multiple Deployment Strategists to scale technical support across multiple projects.</div>
+              <div class="slide-case-desc" style="margin-bottom:3cqw; font-size:1.8cqw;"><strong>Scaling Future Deployments:</strong> Continue to build dedicated forward-deployed pods where a Forward Deployed Engineer can be matched with multiple Deployment Strategists to scale technical support across multiple projects.</div>
               <div class="slide-cases" style="margin-top:0; flex:none;">
                 <div class="slide-case slide-case-toponly">
                   <div class="slide-case-title">Forward Deployed Engineer</div>
@@ -1102,6 +1103,21 @@
                 <div class="slide-case slide-case-toponly">
                   <div class="slide-case-title">Deployment Strategist</div>
                   <div class="slide-case-desc" style="margin-top:1cqw; font-size:1.8cqw;">Owns the post-sales Coval client relationship and operational details for successful deployment.</div>
+                </div>
+              </div>
+              <hr style="border:none; border-top:1px solid #ccc; margin:0.5cqw 0 2.5cqw 0;">
+              <div class="slide-stacked-rows" style="margin-top:0;">
+                <div class="slide-row" style="min-height:3cqw; margin-bottom:1.5cqw; border-left-width:2px;">
+                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Improve Self-Serve</div>
+                  <div class="slide-row-desc" style="font-size:1.2cqw;">Allow for the platform to be as self-serve as possible, simplifying the product, documentation, and make enablement accessible.</div>
+                </div>
+                <div class="slide-row" style="min-height:3cqw; margin-bottom:1.5cqw; border-left-width:2px;">
+                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Create Internal Agentic Processes</div>
+                  <div class="slide-row-desc" style="font-size:1.2cqw;">Automate follow-ups, artifact building, and access to playbooks and templates.</div>
+                </div>
+                <div class="slide-row" style="min-height:3cqw; margin-bottom:0; border-left-width:2px;">
+                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Build User Satisfaction Survey</div>
+                  <div class="slide-row-desc" style="font-size:1.2cqw;">Integrate this into deployment communications channel to receive active product feedback.</div>
                 </div>
               </div>
             </div>
@@ -1130,7 +1146,7 @@
             </div>
             <div class="slide-timeline-node">
               <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">4</text></svg>
-              <div class="slide-timeline-label">Train Users &amp; Scale Simulations</div>
+              <div class="slide-timeline-label">Scale Training &amp; Simulations</div>
             </div>
             <div class="slide-timeline-node">
               <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">5</text></svg>
@@ -1150,7 +1166,7 @@
                 <div class="slide-dropdown-item active" data-value="1">1. Project Kickoff</div>
                 <div class="slide-dropdown-item" data-value="2">2. Client Discovery</div>
                 <div class="slide-dropdown-item" data-value="3">3. Build &amp; Demo Simulation</div>
-                <div class="slide-dropdown-item" data-value="4">4. Train Users &amp; Scale Simulations</div>
+                <div class="slide-dropdown-item" data-value="4">4. Scale Training &amp; Simulations</div>
                 <div class="slide-dropdown-item" data-value="5">5. Production-Testing Loop</div>
                 <div class="slide-dropdown-item" data-value="6">6. Customer Success Handoff</div>
               </div>
@@ -1158,47 +1174,46 @@
           <div class="slide-checklist-week" id="timeline-step-week" style="font-family:'Inter',sans-serif; font-weight:400; font-size:1.3cqw; color:#666; margin-top:0.5cqw;">Week 1</div>
           <div class="slide-checklist">
             <div class="slide-checklist-panel active" data-step="1">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule kickoff meeting with relevant stakeholders</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Define stakeholder roles, "project team", project use-cases and scope, and business objectives.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Set future meeting cadence, review project milestones and timeline, generate weekly pilot status reports.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Build trust and organizational alignment across leadership and end users. Having an onsite helps.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Prior to kick-off meeting, set up project management platform (Jira, Notion, Trello, etc.) for new deployment.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule kickoff meeting with relevant executive and end user stakeholders (Eng, Product, Ops).</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Define stakeholder roles, "project team," project use-cases and scope, and business objectives.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Set future meeting cadence, review project milestones and implementation timeline, and gauge initial pilot needs.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Build trust and organizational alignment across leadership and end users on business objectives. Having an onsite helps.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Set up a deployment communications channel for questions and feedback.</span></label>
             </div>
             <div class="slide-checklist-panel" data-step="2" style="display:none;">
               <div>
                 <div class="slide-case-title" style="font-size:1.6cqw; margin-bottom:0.5cqw;">Operational</div>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Identify user-agent interaction workflow.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Determine current-state team workflows for agent debugging and initial primary users from each team.</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Set up a use-case discovery workshop to identify 3-5 high-impact agent use-cases, mapping user-agent interaction workflows. Focus initially on high-value, low-effort workflows.</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Determine current-state team workflows for agent debugging and primary users from each team. Target these users to be "Champions."</span></label>
                 <label class="slide-checklist-item"><input type="checkbox"><span>Define success and failure taxonomy on user outcomes and impact on business outcomes.</span></label>
                 <label class="slide-checklist-item"><input type="checkbox"><span>Gather baseline voice/chat agent metrics (latency, business metrics, etc.).</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Determine data compliance needs.</span></label>
               </div>
               <div>
                 <div class="slide-case-title" style="font-size:1.6cqw; margin-bottom:0.5cqw;">Technical</div>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing voice AI stack / architecture (see playbook variations slide).</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Infrastructure access and integration preference (API, CLI, Coding Agent, MCP Client).</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Determine technical infrastructure and downstream systems for debugging.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Environment differences across DEV/QA/STAGING/PROD.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing technical guardrails around PII/PHI, data compliance and security requirements (HIPAA, GDPR, etc.).</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing voice or chat AI stack / architecture (see playbook variations slide).</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Determine CI/CD and Coval integration preference (API, SDKs, CLI, Coding Agent, MCP Client). If using coding agents, which one?</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Review system and agent infrastructure and downstream systems used for tracing and monitoring.</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Learn environment differences across QA/STAGING/PROD.</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing technical guardrails around PII/PHI, security requirements, and data compliance needs (HIPAA, GDPR, etc.).</span></label>
               </div>
             </div>
             <div class="slide-checklist-panel" data-step="3" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Confirm and target a single high-impact agent use-case.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Prepare demo of agent simulation of the agent use-case in DEV/QA/STAGING</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Setup Agent connection, workflow graph, and knowledge bases.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Prepare demo of agent simulation of the agent use-case in QA/STAGING</span></label>
+              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Setup Agent connection, workflow, and knowledge bases.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Confirm highest priority metrics.</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Request test cases to create Test Sets.</span></label>
+              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Request test cases (Scenario, Transcript, Script) to create Test Sets.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Create 3-5 Personas.</span></label>
               <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Set up Human Review workflows.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Test simulation and identify opportunties to improve client agent.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Present demo to Eng/PM/Ops stakeholders and showcase value proposition of simulations.</span></label>
             </div>
             <div class="slide-checklist-panel" data-step="4" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Conduct user training sessions and create necessary training artifacts.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Gather training and product feedback.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Partner with teams to build additional high-value primary use-cases in DEV/QA/STAGING environments.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Have engineering teams independently run simulations while refining workflows/conversation scripts and metrics.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Build templates to set up production-like regression and load tests for the most critical use-cases, integrate tracing and simulations into CI/CD.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Catalog adversarial scenarios and edge cases.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Conduct user training sessions, create necessary training artifact, gather deployment and product feedback.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Partner with teams to build additional high-value primary use-cases in QA/STAGING environments.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Have engineering teams independently run Simulations while creating and refining workflows/conversation scripts and custom metrics.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Build Templates to set up production-like regression and load tests for the most critical use-cases, integrate Tracing and Evaluations into CI/CD.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Catalog adversarial scenarios and edge cases (can be created now or later).</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Determine which core use-cases should undergo Human Review.</span></label>
             </div>
             <div class="slide-checklist-panel" data-step="5" style="display:none;">
@@ -1207,12 +1222,12 @@
               <label class="slide-checklist-item"><input type="checkbox"><span>Compare production telemetry against simulation benchmarks.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Construct a data-driven report showing what was uncovered in simulations, opportunities in production workflows.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Provide support and training on how to leverage production issues to improve simulations.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Present metrics that support improvements of initial business objectives.</span></label>
             </div>
             <div class="slide-checklist-panel" data-step="6" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Provide relevant pilot details in project management platform.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule knowledge transfer and ownership call to Customer Success.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Produce additional metrics that support and expand business objectives.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule internal knowledge transfer call with Customer Success.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Set deployment review and client transfer call with executive and end-user stakeholders. Present metrics that support improvements of initial business objectives.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Produce additional metrics that support and expand business objectives and introduce client team to Customer Success team.</span></label>
+              <label class="slide-checklist-item"><input type="checkbox"><span>Make appropriate deployment status updates in project management platform.</span></label>
               <label class="slide-checklist-item"><input type="checkbox"><span>Customer Success to conduct follow-up review with client (QBR) and execute expansion and retention strategies (see Customer Success Strategy slide).</span></label>
             </div>
           </div>
@@ -1249,6 +1264,8 @@
             <div class="slide-tech-checklist" id="tech-modality-checklist">
               <div class="slide-tech-panel active" data-tech="basic-cascaded">
                 <label class="slide-checklist-item"><input type="checkbox"><span>What orchestration framework is used (for telephony, transport, speech recognition/turn detection)?</span></label>
+                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If LiveKit, complete this <a href="https://docs.coval.ai/concepts/agents/connections/livekit" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
+                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If PipeCat Cloud, complete this <a href="https://docs.coval.ai/concepts/agents/connections/pipecat" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
                 <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>SST / TTS model provider and version</span></label>
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>Is additional context captured for expression, tone, and prosody?</span></label>
                 <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>LLM model provider and version</span></label>
@@ -1256,12 +1273,14 @@
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>When are resources and tool calls made during the workflow and what tools are used?</span></label>
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What policies and guardrails are set up during the workflow and when/how are they executed?</span></label>
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What agent tracing platform are you using today?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What are specific use-cases leveraging this voice AI architecture.</span></label>
+                <label class="slide-checklist-item"><input type="checkbox"><span>What are specific use-cases leveraging this voice AI architecture (Inbound, Outbound)?</span></label>
               </div>
               <div class="slide-tech-panel" data-tech="hybrid" style="display:none;">
                 <label class="slide-checklist-item"><input type="checkbox"><span>What orchestration framework is used (for telephony, transport, speech recognition/turn detection)?</span></label>
                 <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span style="color:#0A1F3B; font-weight:600;">Which components or processes are fused vs. cascaded?</span></label>
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span style="color:#0A1F3B; font-weight:600;">How is the context of fused processes stored?</span></label>
+                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If LiveKit, complete this <a href="https://docs.coval.ai/concepts/agents/connections/livekit" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
+                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If PipeCat Cloud, complete this <a href="https://docs.coval.ai/concepts/agents/connections/pipecat" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
                 <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>SST / TTS model provider and version</span></label>
                 <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>Is additional context captured for expression, tone, and prosody?</span></label>
                 <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>LLM model provider and version</span></label>
@@ -1319,8 +1338,8 @@
           <div class="slide-case slide-case-toponly">
             <div class="slide-case-title">Internal Quick Reference Guide</div>
             <div id="domain-personas-panel" style="margin-top:1.5cqw;">
-              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Short-Term:</strong> Catalog most common personas/metrics across deployments (extract through call notes) and correlate with business outcomes, allow for Coval GTM teams to quickly access playbook information via query.</div>
-              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Long-Term:</strong> Run clustering analyses or leverage supervised learning techniques to determine which personas and metrics across past deployments lead to high usage patterns and perform best for specific metrics and use-cases.</div>
+              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Short-Term:</strong> Catalog the most common personas and metrics across deployments and correlate these with business outcomes. Create internal agents to allow Coval GTM teams to quickly reference playbook materials via query.</div>
+              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Long-Term:</strong> Work with Data Science to determine which personas and metrics across past deployments lead to high usage patterns and perform best for specific metrics and use-cases.</div>
               <div class="slide-accordion">
                 <div class="slide-accordion-header" style="margin-top:1.5cqw;">
                   <div class="slide-case-title" style="font-size:1.6cqw;">Domain Personas: Financial Services</div>
@@ -1369,16 +1388,16 @@
           <div class="slide-case slide-case-toponly">
             <div class="slide-case-title">Grow Team Adoption</div>
             <div class="slide-case-desc" style="margin-top:1cqw;"><strong><em>Expand usage and buy-in across client Eng/PM/Ops teams:</em></strong></div>
-            <div class="slide-case-desc">&#9656; Continue to translate observability metrics to <span class="slide-tooltip" data-tip="Ex: Resolution Rate, Containment Rate, Task Completion, Escalation Rate, Compliance Adherence, Revenue Impact">business KPIs</span> to prove value, focus on high-value workflows</div>
+            <div class="slide-case-desc">&#9656; Continue to translate observability metrics to <span class="slide-tooltip" data-tip="Ex: Resolution Rate, Containment Rate, Task Completion, Escalation Rate, Compliance Adherence, Revenue Impact">business KPIs</span> to prove value</div>
             <div class="slide-case-desc">&#9656; Grow adoption across adjacent teams, source other pain points and use-cases</div>
             <div class="slide-case-desc">&#9656; Integrate Human Review issues into client systems to reduce debugging time</div>
-            <div class="slide-case-desc">&#9656; Build behavior and action by setting a weekly cadence to review dashboards and training gaps</div>
+            <div class="slide-case-desc">&#9656; Build behavior and action by setting a recurring cadence to review dashboards and training gaps</div>
             <div class="slide-case-desc">&#9656; Make value visible to budget decision-makers and leadership</div>
           </div>
           <div class="slide-case slide-case-toponly">
             <div class="slide-case-title">Support Retention</div>
             <div class="slide-case-desc" style="margin-top:1cqw;"><strong><em>Continue Coval platform enablement and client satisfaction:</em></strong></div>
-            <div class="slide-case-desc">&#9656; Prioritize client agent initiatives based on impact and strategic importance</div>
+            <div class="slide-case-desc">&#9656; Prioritize client agent initiatives based on impact and strategic importance, increase NRR</div>
             <div class="slide-case-desc">&#9656; Monitor simulation usage and adoption patterns to monitor account health and reduce potential churn</div>
             <div class="slide-case-desc">&#9656; Setup power user feedback channels to help engineering quickly iterate product and reduce friction</div>
             <div class="slide-case-desc">&#9656; Automate outreach for smaller, low-touch clients to scale customer success operations.</div>
@@ -1404,9 +1423,14 @@
             <div class="slide-case-desc">&#9656; Leverage Quick Reference Guide suggestions to help scale deployments.</div>
           </div>
           <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Minor Improvements</div>
-            <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; The current "<a href="https://docs.coval.dev/login?redirect=%2F" target="_blank" style="color:#0A1F3B;">Documentation</a>" hyperlink in the footer redirects to a page with a 404 error. Perhaps a quick URL fix?</div>
-            <div class="slide-case-desc">&#9656; During our previous discussion about the unit economics of chat vs. Voice AI, here is the reference <a href="https://www.coval.ai/blog/voice-ai-vs-chatbots-in-2026-why-leading-enterprises-are-going-voice-first" target="_blank" style="color:#0A1F3B;">blog post</a> I was referring to, though I could have made it more clear based on resolution time and more strategic use.</div>
+            <div class="slide-case-title">Minor Suggestions</div>
+            <div class="slide-case-desc">&#9656; During our previous discussion about the unit economics of chat vs. Voice AI, here is the reference <a href="https://www.coval.ai/blog/voice-ai-vs-chatbots-in-2026-why-leading-enterprises-are-going-voice-first" target="_blank" style="color:#0A1F3B;">blog post</a> I was referring to that mentions the change in unit economics.</div>
+            <div class="slide-case-desc">&#9656; When clicking on an Industry landing page and selecting the "View Case Studies" button, the uesr is redirected to a catalog of all case studies rather than an industry-specific case study (UX is confusing).</div>
+            <div class="slide-case-desc">&#9656; Perhaps creating a "Case Studies" option when selecting the Resources navigation tab could also be useful.</div>
+            <div class="slide-case-desc">&#9656; The Perplexity case hyperlink results in a 404 error.</div>
+            <div class="slide-case-desc">&#9656; Move the Organization Workspace UI drop-down to be above the agent drop-down in the left-hand menu. This separates organization from profile settings.</div>
+            <div class="slide-case-desc">&#9656; Update the "Organization" tab name for the Transcription Keyword Dictionary</div>
+            <div class="slide-case-desc">&#9656; "Integrations" should be moved out of Profile Settings</div>
           </div>
         </div>
         <span class="slide-number">7</span>
