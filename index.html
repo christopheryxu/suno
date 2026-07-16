@@ -2,22 +2,34 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coval</title>
+<title>Suno AI Adoption Plan</title>
+<link rel="icon" type="image/jpeg" href="public/Suno Favicon.jpeg">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     min-height: 100vh;
-    background-color: #ffffff;
-    font-family: 'Inter', sans-serif;
+    background: url('public/Suno Hero.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Manrope', sans-serif;
+    color: #ffffff;
   }
   #wave-bg {
+    display: none;
+  }
+  #bg-overlay {
     position: fixed;
     inset: 0;
     z-index: 0;
     pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0.4) 40%,
+      rgba(0,0,0,0.95) 100%
+    );
   }
   #logo-link {
     position: absolute;
@@ -35,7 +47,7 @@
     opacity: 0.7;
   }
   #logo {
-    height: 36px;
+    height: 40px;
   }
 
   /* Pages */
@@ -75,19 +87,38 @@
   .slide-nav-btn {
     width: 40px;
     height: 72px;
-    border: 1px solid #ccc;
-    background: #fff;
+    border: 1px solid #333;
+    background: #1B1B1D;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 2;
+    font-family: 'Questrial', sans-serif;
     font-size: 16px;
-    color: #1a1a1a;
-    transition: background 0.2s, color 0.2s;
+    color: #ffffff;
+    transition: color 0.2s;
+    overflow: hidden;
+  }
+  .slide-nav-btn::before {
+    content: '';
+    position: absolute;
+    width: 72px;
+    height: 40px;
+    background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
+    transform: rotate(90deg);
+    z-index: 0;
+  }
+  .slide-nav-btn svg {
+    position: relative;
+    z-index: 1;
+  }
+  .slide-nav-btn.slide-nav-down::before {
+    transform: rotate(-90deg);
   }
   .slide-nav-btn:hover {
-    background: #1a1a1a;
+    background: rgba(255,255,255,0.15);
     color: #fff;
   }
   .slide-nav-btn svg {
@@ -99,14 +130,20 @@
   .slide {
     width: 60vw;
     aspect-ratio: 16 / 9;
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #000000;
+    border: 1px solid #272729;
     flex-shrink: 0;
     position: relative;
+    z-index: 2;
     container-type: inline-size;
     overflow: hidden;
     padding: 3cqw;
     font-size: 2cqw;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+  .slide:hover {
+    border-color: #444;
   }
   .slide-flex {
     display: flex;
@@ -128,11 +165,11 @@
     transform: scale(0.85);
   }
   .slide-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 4.5cqw;
     line-height: 1.1;
-    color: #1a1a1a;
+    color: #fff;
     text-align: left;
     max-width: 60%;
     word-wrap: break-word;
@@ -183,11 +220,11 @@
     transform: scale(1.05);
   }
   .slide-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 4cqw;
     line-height: 1.3;
-    color: #1a1a1a;
+    color: #fff;
     text-align: left;
     max-width: 100%;
     margin-top: 8cqw;
@@ -223,24 +260,24 @@
     height: 100%;
   }
   .slide-box-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 4cqw;
-    color: #1a1a1a;
+    color: #fff;
     flex: 1;
   }
   .slide-box-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 2.5cqw;
     line-height: 1.3;
-    color: #1a1a1a;
+    color: rgba(255,255,255,0.7);
   }
   .slide-meta {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 2.5cqw;
-    color: #1a1a1a;
+    color: #fff;
     text-align: left;
     margin-top: 12cqw;
   }
@@ -269,7 +306,7 @@
   .slide-case:nth-child(2) { border-top-color: #777; }
   .slide-case:nth-child(3) { border-top-color: #555; }
   .slide-case:nth-child(4) { border-top-color: #333; }
-  .slide-case:nth-child(5) { border-top-color: #1a1a1a; }
+  .slide-case:nth-child(5) { border-top-color: #fff; }
   .slide-vdivider {
     width: max(0.15cqw, 1px);
     background: #1a1a1a;
@@ -287,10 +324,10 @@
     margin-bottom: 1.5cqw;
   }
   .slide-case-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 2.5cqw;
-    color: #1a1a1a;
+    color: #fff;
   }
   .slide-cases-footer {
     padding: 2cqw 2cqw 2cqw 2cqw;
@@ -386,35 +423,35 @@
     stroke: #fff;
   }
   .slide-row-title {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 2.5cqw;
-    color: #1a1a1a;
+    color: #fff;
     white-space: nowrap;
     width: 30%;
     flex-shrink: 0;
   }
   .slide-row-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 1.35cqw;
     line-height: 1.3;
-    color: #1a1a1a;
+    color: rgba(255,255,255,0.7);
   }
   .slide-cases-footer .slide-box-desc {
     font-size: 1.8cqw;
     margin-top: 1.5cqw;
   }
   .slide-case-desc {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 1.5cqw;
     line-height: 1.3;
-    color: #1a1a1a;
+    color: rgba(255,255,255,0.7);
     margin-top: 1cqw;
   }
   .timeline-day {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.4cqw;
   }
@@ -482,14 +519,14 @@
   .slide-timeline-node:nth-child(6) .slide-timeline-num circle { fill: #4d4d4d; }
   .slide-timeline-node:nth-child(7) .slide-timeline-num circle { fill: #3e3e3e; }
   .slide-timeline-node.active .slide-timeline-num circle {
-    stroke: #0A1F3B;
+    stroke: #E65126;
     stroke-width: 10;
   }
   .slide-timeline-label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.3cqw;
-    color: #1a1a1a;
+    color: #fff;
     text-align: center;
     line-height: 1.2;
     position: absolute;
@@ -545,7 +582,7 @@
     gap: 1.2cqw;
   }
   .slide-timeline-detail-num {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.3cqw;
     color: #fff;
@@ -558,10 +595,10 @@
     flex-shrink: 0;
   }
   .slide-timeline-detail-text {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.6cqw;
-    color: #1a1a1a;
+    color: #fff;
   }
   .slide-toggle-wrap {
     display: flex;
@@ -582,11 +619,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.6cqw;
     line-height: 1;
-    color: #666;
+    color: #fff;
     padding: 1cqw 0;
     position: relative;
     z-index: 1;
@@ -603,7 +640,7 @@
     left: 0.3cqw;
     width: calc(50% - 0.6cqw);
     height: calc(100% - 0.6cqw);
-    background: #0A1F3B;
+    background: #EB7422;
     border-radius: 1.7cqw;
     transition: transform 0.3s ease;
   }
@@ -627,14 +664,14 @@
     display: inline-flex;
     align-items: center;
     gap: 0.8cqw;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.4cqw;
     padding: 0.4cqw 1.2cqw;
     border: 1px solid #ccc;
     border-radius: 0.5cqw;
     background: #fff;
-    color: #1a1a1a;
+    color: #fff;
     cursor: pointer;
     user-select: none;
   }
@@ -646,7 +683,7 @@
     height: 0;
     border-left: 0.7cqw solid transparent;
     border-right: 0.7cqw solid transparent;
-    border-top: 0.8cqw solid #1a1a1a;
+    border-top: 0.8cqw solid #ffffff;
   }
   .slide-dropdown-menu {
     display: none;
@@ -665,7 +702,7 @@
     display: block;
   }
   .slide-dropdown-item {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Questrial', sans-serif;
     font-weight: 600;
     font-size: 1.4cqw;
     padding: 0.4cqw 1.2cqw;
@@ -697,8 +734,8 @@
   }
   .slide-tooltip {
     text-decoration: underline;
-    text-decoration-color: #0A1F3B;
-    color: #0A1F3B;
+    text-decoration-color: #E64082;
+    color: #E64082;
     cursor: pointer;
     position: relative;
   }
@@ -710,7 +747,7 @@
     transform: translateX(-50%);
     background: #1a1a1a;
     color: #fff;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 1cqw;
     font-weight: 400;
     padding: 0.4cqw 0.7cqw;
@@ -742,10 +779,10 @@
     display: flex;
     align-items: baseline;
     gap: 0.8cqw;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 400;
     font-size: 1.3cqw;
-    color: #1a1a1a;
+    color: #fff;
     padding: 0.45cqw 0;
     cursor: pointer;
   }
@@ -758,7 +795,7 @@
     height: clamp(6px, 0.65vw, 10px);
     flex-shrink: 0;
     cursor: pointer;
-    accent-color: #1a1a1a;
+    accent-color: #fff;
   }
   .slide-accordion-header {
     display: flex;
@@ -767,21 +804,21 @@
     cursor: pointer;
   }
   .slide-accordion-icon {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 2.5cqw;
     line-height: 1;
-    color: #1a1a1a;
+    color: #fff;
     user-select: none;
   }
   .slide-number {
     position: absolute;
     bottom: 1.5cqw;
     right: 2cqw;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 600;
     font-size: 1.8cqw;
-    color: #1a1a1a;
+    color: #fff;
   }
   @media (max-width: 768px) {
     .slide-nav-btn {
@@ -864,547 +901,72 @@
 </head>
 <body>
   <canvas id="wave-bg"></canvas>
+  <div id="bg-overlay"></div>
   <a href="#home" id="logo-link">
-    <img id="logo" src="public/Coval Logo.svg" alt="COVAL">
+    <img id="logo" src="public/Suno White Logo.svg" alt="Suno">
   </a>
 
   <!-- Page: Home -->
   <div id="page-home" class="page">
     <div id="slides">
       <div class="slide slide-flex">
-        <div class="slide-title" style="max-width:100%">Demand & Lead Generation</div>
-        <div class="slide-toggle-wrap" style="margin-top:2.5cqw;">
-          <div class="slide-toggle slide-toggle-3" id="bd-toggle">
-            <div class="slide-toggle-option active" data-target="awareness">Awareness</div>
-            <div class="slide-toggle-option" data-target="consideration">Consideration</div>
-            <div class="slide-toggle-option" data-target="conversion">Conversion</div>
-            <div class="slide-toggle-slider"></div>
-          </div>
-          <div class="slide-toggle-content">
-            <div class="slide-toggle-panel active" id="bd-toggle-awareness">
-              <div class="slide-cases" style="margin-top:0; flex:none;">
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Current</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Content marketing (Blog, etc.)</div>
-                  <div class="slide-case-desc">&#9656; SEO / Organic Traffic</div>
-                  <div class="slide-case-desc">&#9656; In-Person Events (Hackathons, Happy Hours, etc.)</div>
-                  <div class="slide-case-desc">&#9656; Limited Social Media (e.g., Brooke's posts, Coval LinkedIn/X)</div>
-                  <div class="slide-case-desc">&#9656; Word of Mouth</div>
-                  <div class="slide-case-desc">&#9656; Landing page updates (enterprise customer logos, customer testimonials, etc.)</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Coval documents are discoverable by agents (in .md)</div>
-                </div>
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Future Ideas</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Advertising campaigns (across different forms of media)</div>
-                  <div class="slide-case-desc">&#9656; Expand content distribution channels and authority: social media (LinkedIn, X, etc.), newsletter, podcast, etc.</div>
-                  <div class="slide-case-desc">&#9656; Domain-specific webinars</div>
-                  <div class="slide-case-desc">&#9656; Observability event conference exhibitions (e.g., LangChain Interrupt)</div>
-                </div>
-              </div>
-            </div>
-            <div class="slide-toggle-panel" id="bd-toggle-consideration" style="display:none;">
-              <div class="slide-cases" style="margin-top:0; flex:none;">
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Current</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Book a demo</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Content marketing (Coval Voice AI 2026 Report, whitepapers, etc.)</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Benchmark development</div>
-                </div>
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Future Ideas</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Coval developer community / help forum (Discord, Slack, etc.)</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Authoritative research</div>
-                  <div class="slide-case-desc">&#9656; Make benchmarks the industry standard</div>
-                  <div class="slide-case-desc">&#9656; Interactive training academies (self-paced learning with video tutorials, hands-on projects, etc.)</div>
-                </div>
-              </div>
-            </div>
-            <div class="slide-toggle-panel" id="bd-toggle-conversion" style="display:none;">
-              <div class="slide-cases" style="margin-top:0; flex:none;">
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Current</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Sign up for free trial</div>
-                  <div class="slide-case-desc">&#9656; Partnerships and referrals</div>
-                </div>
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Future Ideas</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Provide simulation credits program for startups / SMB</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Build integration ecosystem and extensibility to other apps</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw;">&#9656; Expand product features (improve onboarding, tutorial experience, multilingual capability, etc.)</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="slide-title slide-title-full">What Are We Doing?</div>
         <span class="slide-number">1</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Strategic Sales & Partnerships</div>
-        <div class="slide-cases" style="margin-top:2.5cqw; flex:none;">
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Sales</div>
-            <div class="slide-accordion">
-              <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">SMB Voice AI Platforms</div>
-                <span class="slide-accordion-icon">+</span>
-              </div>
-              <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-              <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; <a href="https://www.avoca.ai/" target="_blank" style="color:#0A1F3B;">Avoca</a>: Voice AI for Home Services</div>
-                <div class="slide-case-desc">&#9656; <a href="https://maple.inc/" target="_blank" style="color:#0A1F3B;">Maple</a>: Voice AI for Restaurants</div>
-                <div class="slide-case-desc">&#9656; <a href="https://www.heidihealth.com/en-us/comms" target="_blank" style="color:#0A1F3B;">Heidi Health</a>: Voice AI for Healthcare</div>
-              </div>
-            </div>
-            <div class="slide-accordion">
-              <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">Enterprise AI Voice / Contact Center</div>
-                <span class="slide-accordion-icon">+</span>
-              </div>
-              <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-              <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; <a href="https://www.parloa.com/" target="_blank" style="color:#0A1F3B;">Parloa</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://elevenlabs.io/agents" target="_blank" style="color:#0A1F3B;">ElevenAgents</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://sierra.ai/" target="_blank" style="color:#0A1F3B;">Sierra</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://decagon.ai/" target="_blank" style="color:#0A1F3B;">Decagon</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://fin.ai/" target="_blank" style="color:#0A1F3B;">Intercom (Fin)</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://cresta.com/" target="_blank" style="color:#0A1F3B;">Cresta</a></div> 
-                <div class="slide-case-desc">&#9656; <a href="https://giga.ai/" target="_blank" style="color:#0A1F3B;">Giga</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://www.genesys.com/" target="_blank" style="color:#0A1F3B;">Genesys</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://www.five9.com/" target="_blank" style="color:#0A1F3B;">Five9</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Partnerships</div>
-            <div class="slide-accordion">
-              <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">Omnichannel CX Support Platforms</div>
-                <span class="slide-accordion-icon">+</span>
-              </div>
-              <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-              <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; <a href="https://www.zendesk.com/" target="_blank" style="color:#0A1F3B;">Zendesk</a></div>
-                <div class="slide-case-desc">&#9656; <a href="https://www.usepylon.com/" target="_blank" style="color:#0A1F3B;">Pylon</a></div>
-              </div>
-            </div>
-            <div class="slide-accordion">
-              <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">ISV Ecosystems & Frameworks</div>
-                <span class="slide-accordion-icon">+</span>
-              </div>
-              <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-              <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; Zoom, Cisco, PipeCat, Retell &#10003;</div>
-                <div class="slide-case-desc">&#9656; Twilio</div>
-                <div class="slide-case-desc">&#9656; Vonage</div>
-                <div class="slide-case-desc">&#9656; LiveKit</div>
-              </div>
-            </div>
-            <div class="slide-accordion">
-              <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                <div class="slide-case-title" style="font-size:2cqw;">Global System Integrators</div>
-                <span class="slide-accordion-icon">+</span>
-              </div>
-              <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-              <div class="slide-accordion-body" style="display:none;">
-                <div class="slide-case-desc">&#9656; Accenture</div>
-                <div class="slide-case-desc">&#9656; Deloitte</div>
-                <div class="slide-case-desc">&#9656; Capgemini</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="slide-title slide-title-full">Why Are We Doing It?</div>
         <span class="slide-number">2</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Forward Deployment: Role & Scope</div>
-        <div class="slide-toggle-wrap" style="margin-top:2.5cqw;">
-          <div class="slide-toggle" id="role-toggle">
-            <div class="slide-toggle-option active" data-target="now">Now</div>
-            <div class="slide-toggle-option" data-target="future">Scaled</div>
-            <div class="slide-toggle-slider"></div>
-          </div>
-          <div class="slide-toggle-content">
-            <div class="slide-toggle-panel active" id="toggle-now">
-              <div style="display:flex; align-items:center; gap:1.5cqw;">
-                <div class="slide-case-title" style="font-size:3cqw;">Deployment Strategist</div>
-                <div class="slide-dropdown" id="fde-dropdown">
-                  <div class="slide-dropdown-selected">Enterprise</div>
-                  <div class="slide-dropdown-arrow"></div>
-                  <div class="slide-dropdown-menu">
-                    <div class="slide-dropdown-item active" data-value="enterprise">Enterprise</div>
-                    <div class="slide-dropdown-item" data-value="mid-market">Mid-Market</div>
-                    <div class="slide-dropdown-item" data-value="internal">Internal</div>
-                  </div>
-                </div>
-              </div>
-              <div class="slide-dropdown-desc active" data-desc="enterprise" style="margin-top:1cqw">
-                <div class="slide-case-desc" style="font-size:1.8cqw;">Own the discovery of enterprise client operational workflow and technical implementation needs to drive pilot adoption and engagement of Coval's platform to resolve customer pain points. Pair with a Coval Forward Deployed Engineer if needed to extend Coval platform features to ensure technical success.</div>
-              </div>
-              <div class="slide-dropdown-desc" data-desc="mid-market" style="margin-top:1cqw; display:none;">
-                <div class="slide-case-desc" style="font-size:1.8cqw;">Serve as an operational advisor to mid-market teams, guiding them through the pre-observability phase. Partner with the teams to identify high-ROI use-cases and bridge knowledge gaps. Once the teams are operationally ready, these teams can be converted to customers.</div>
-              </div>
-              <div class="slide-dropdown-desc" data-desc="internal" style="margin-top:1cqw; display:none;">
-                <div class="slide-case-desc" style="font-size:1.8cqw;">Build internal workflows, documentation, and best practices to maximize client utilization and scale future deployments.</div>
-              </div>
-              <div style="height:2px; background:linear-gradient(to right, #999, #333); margin:1.5cqw 0 2.5cqw 0; flex-shrink:0;"></div>
-              <div class="slide-stacked-rows" id="rows-enterprise">
-                <div class="slide-row">
-                  <div class="slide-row-title">Project Alignment</div>
-                  <div class="slide-row-desc">Understand the client's goal, scope, and roles to ensure organizational buy-in and alignment on outcomes.</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Project Planning</div>
-                  <div class="slide-row-desc">Utilize an internal project management platform. Communicate stakeholder cadence, milestones, and project timeline.</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Success Partner</div>
-                  <div class="slide-row-desc">Align with leadership and end users on business metrics that proves success. Gather baseline metrics to measure against post-project outcomes. Advise enterprise teams on how best to best adopt Coval based on existing system architecture and AI agent production use-cases.</div>
-                </div>
-              </div>
-              <div class="slide-stacked-rows" id="rows-mid-market" style="display:none;">
-                <div class="slide-row">
-                  <div class="slide-row-title">Needs Discovery</div>
-                  <div class="slide-row-desc">Take time to understand the existing pain points, budget size, and champions across teams that want to improve their customer-facing AI transformation strategy</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Client Advisory</div>
-                  <div class="slide-row-desc">Work directly with the mid-market client to put teams in touch with trusted partners to explore ways of transforming their customer support user experience.</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Agent Architect</div>
-                  <div class="slide-row-desc">Partner directly with mid-market clients and agent platform teams to build and deploy a production agent at little to no cost _.</div>
-                </div>
-              </div>
-              <div class="slide-stacked-rows" id="rows-internal" style="display:none;">
-                <div class="slide-row">
-                  <div class="slide-row-title">Internal Tracking</div>
-                  <div class="slide-row-desc">Conduct stakeholder analysis (e.g. champions, blockers, etc.) to improve project efficiency and determine project risk. Provide a user feedback loop to engineering for fast product iteration. Run internal QBRs.</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Build Automation</div>
-                  <div class="slide-row-desc">Work with internal Coval team members to automate administrative and manual project processes to improve future deployment speed.</div>
-                </div>
-                <div class="slide-row">
-                  <div class="slide-row-title">Playbook Iteration</div>
-                  <div class="slide-row-desc">Increase deployment speed by iterating on best practices and lessons learned from previous deployments through iterating and standardizing deployment playbooks across domains, use-cases, and integrations.</div>
-                </div>
-              </div>
-            </div>
-            <div class="slide-toggle-panel" id="toggle-future" style="display:none;">
-              <div class="slide-case-desc" style="margin-bottom:3cqw; font-size:1.8cqw;"><strong>Scaling Future Deployments:</strong> Continue to build dedicated forward-deployed pods where a Forward Deployed Engineer can be matched with multiple Deployment Strategists to scale technical support across multiple projects.</div>
-              <div class="slide-cases" style="margin-top:0; flex:none;">
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Forward Deployed Engineer</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw; font-size:1.8cqw;">Owns the technical success across all post-sales Coval deployments.</div>
-                </div>
-                <div class="slide-case slide-case-toponly">
-                  <div class="slide-case-title">Deployment Strategist</div>
-                  <div class="slide-case-desc" style="margin-top:1cqw; font-size:1.8cqw;">Owns the post-sales Coval client relationship and operational details for successful deployment.</div>
-                </div>
-              </div>
-              <hr style="border:none; border-top:1px solid #ccc; margin:0.5cqw 0 2.5cqw 0;">
-              <div class="slide-stacked-rows" style="margin-top:0;">
-                <div class="slide-row" style="min-height:3cqw; margin-bottom:1.5cqw; border-left-width:2px;">
-                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Improve Self-Serve</div>
-                  <div class="slide-row-desc" style="font-size:1.2cqw;">Allow for the platform to be as self-serve as possible, simplifying the product, documentation, and make enablement accessible.</div>
-                </div>
-                <div class="slide-row" style="min-height:3cqw; margin-bottom:1.5cqw; border-left-width:2px;">
-                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Create Internal Agentic Processes</div>
-                  <div class="slide-row-desc" style="font-size:1.2cqw;">Automate follow-ups, artifact building, and access to playbooks and templates.</div>
-                </div>
-                <div class="slide-row" style="min-height:3cqw; margin-bottom:0; border-left-width:2px;">
-                  <div class="slide-row-title" style="font-size:1.6cqw; width:auto; margin-right:1.5cqw;">Build User Satisfaction Survey</div>
-                  <div class="slide-row-desc" style="font-size:1.2cqw;">Integrate this into deployment communications channel to receive active product feedback.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="slide-title slide-title-full">How Will this Work?</div>
         <span class="slide-number">3</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Forward Deployment: Enterprise</div>
-        <div class="slide-meta" id="timeline-duration" style="margin-top:2.5cqw; font-size:2.5cqw;">Project Timeline: 6 Weeks</div>
-        <div class="slide-timeline">
-          <div class="slide-timeline-line-div"></div>
-          <div class="slide-timeline-nodes">
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">1</text></svg>
-              <div class="slide-timeline-label">Project Kickoff</div>
-            </div>
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">2</text></svg>
-              <div class="slide-timeline-label">Client Discovery</div>
-            </div>
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">3</text></svg>
-              <div class="slide-timeline-label" style="width:13cqw;">Build &amp; Demo Simulation</div>
-            </div>
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">4</text></svg>
-              <div class="slide-timeline-label">Scale Training &amp; Simulations</div>
-            </div>
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">5</text></svg>
-              <div class="slide-timeline-label">Production-Testing Loop</div>
-            </div>
-            <div class="slide-timeline-node">
-              <svg class="slide-timeline-num" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50"/><text x="50" y="50" text-anchor="middle" dy="0.35em" fill="#fff" font-family="Inter, sans-serif" font-weight="600" font-size="46">6</text></svg>
-              <div class="slide-timeline-label" style="width:13cqw;">Customer Success Handoff</div>
-            </div>
+        <div class="slide-title slide-title-full">Adoption Team Goals</div>
+        <div style="display:flex; gap:2cqw; margin-top:3cqw; flex:1; align-items:stretch;">
+          <div style="flex:1; border:1px solid #272729; border-radius:1cqw; padding:2cqw; background:#1B1B1D; display:flex; align-items:center; justify-content:center;">
+            <div class="slide-case-title" style="font-size:2.5cqw;">Growth</div>
           </div>
-        </div>
-        <div class="slide-timeline-detail" style="margin-top:0;">
-          <div class="slide-dropdown" id="timeline-step-dropdown" style="border:none; padding:0; background:none; display:flex; align-items:center; gap:1.5cqw; cursor:pointer;">
-            <div class="slide-case-title" id="timeline-step-title" style="cursor:pointer; font-size:2.5cqw;">1. Project Kickoff</div>
-              <div class="slide-dropdown-arrow"></div>
-              <div class="slide-dropdown-menu">
-                <div class="slide-dropdown-item active" data-value="1">1. Project Kickoff</div>
-                <div class="slide-dropdown-item" data-value="2">2. Client Discovery</div>
-                <div class="slide-dropdown-item" data-value="3">3. Build &amp; Demo Simulation</div>
-                <div class="slide-dropdown-item" data-value="4">4. Scale Training &amp; Simulations</div>
-                <div class="slide-dropdown-item" data-value="5">5. Production-Testing Loop</div>
-                <div class="slide-dropdown-item" data-value="6">6. Customer Success Handoff</div>
-              </div>
+          <div style="flex:1; border:1px solid #272729; border-radius:1cqw; padding:2cqw; background:#1B1B1D; display:flex; align-items:center; justify-content:center;">
+            <div class="slide-case-title" style="font-size:2.5cqw;">People</div>
           </div>
-          <div class="slide-checklist-week" id="timeline-step-week" style="font-family:'Inter',sans-serif; font-weight:400; font-size:1.3cqw; color:#666; margin-top:0.5cqw;">Week 1</div>
-          <div class="slide-checklist">
-            <div class="slide-checklist-panel active" data-step="1">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Prior to kick-off meeting, set up project management platform (Jira, Notion, Trello, etc.) for new deployment.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule kickoff meeting with relevant executive and end user stakeholders (Eng, Product, Ops).</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Define stakeholder roles, "project team," project use-cases and scope, and business objectives.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Set future meeting cadence, review project milestones and implementation timeline, and gauge initial pilot needs.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Build trust and organizational alignment across leadership and end users on business objectives. Having an onsite helps.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Set up a deployment communications channel for questions and feedback.</span></label>
-            </div>
-            <div class="slide-checklist-panel" data-step="2" style="display:none;">
-              <div>
-                <div class="slide-case-title" style="font-size:1.6cqw; margin-bottom:0.5cqw;">Operational</div>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Set up a use-case discovery workshop to identify 3-5 high-impact agent use-cases, mapping user-agent interaction workflows. Focus initially on high-value, low-effort workflows.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Determine current-state team workflows for agent debugging and primary users from each team. Target these users to be "Champions."</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Define success and failure taxonomy on user outcomes and impact on business outcomes.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Gather baseline voice/chat agent metrics (latency, business metrics, etc.).</span></label>
-              </div>
-              <div>
-                <div class="slide-case-title" style="font-size:1.6cqw; margin-bottom:0.5cqw;">Technical</div>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing voice or chat AI stack / architecture (see playbook variations slide).</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Determine CI/CD and Coval integration preference (API, SDKs, CLI, Coding Agent, MCP Client). If using coding agents, which one?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Review system and agent infrastructure and downstream systems used for tracing and monitoring.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Learn environment differences across QA/STAGING/PROD.</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Understand existing technical guardrails around PII/PHI, security requirements, and data compliance needs (HIPAA, GDPR, etc.).</span></label>
-              </div>
-            </div>
-            <div class="slide-checklist-panel" data-step="3" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Prepare demo of agent simulation of the agent use-case in QA/STAGING</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Setup Agent connection, workflow, and knowledge bases.</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Confirm highest priority metrics.</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Request test cases (Scenario, Transcript, Script) to create Test Sets.</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Create 3-5 Personas.</span></label>
-              <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Set up Human Review workflows.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Test simulation and identify opportunties to improve client agent.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Present demo to Eng/PM/Ops stakeholders and showcase value proposition of simulations.</span></label>
-            </div>
-            <div class="slide-checklist-panel" data-step="4" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Conduct user training sessions, create necessary training artifact, gather deployment and product feedback.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Partner with teams to build additional high-value primary use-cases in QA/STAGING environments.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Have engineering teams independently run Simulations while creating and refining workflows/conversation scripts and custom metrics.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Build Templates to set up production-like regression and load tests for the most critical use-cases, integrate Tracing and Evaluations into CI/CD.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Catalog adversarial scenarios and edge cases (can be created now or later).</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Determine which core use-cases should undergo Human Review.</span></label>
-            </div>
-            <div class="slide-checklist-panel" data-step="5" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Migrate core simulation use-cases to production.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Set up alerts and monitors for production agents to determine potential failure points.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Compare production telemetry against simulation benchmarks.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Construct a data-driven report showing what was uncovered in simulations, opportunities in production workflows.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Provide support and training on how to leverage production issues to improve simulations.</span></label>
-            </div>
-            <div class="slide-checklist-panel" data-step="6" style="display:none;">
-              <label class="slide-checklist-item"><input type="checkbox"><span>Schedule internal knowledge transfer call with Customer Success.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Set deployment review and client transfer call with executive and end-user stakeholders. Present metrics that support improvements of initial business objectives.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Produce additional metrics that support and expand business objectives and introduce client team to Customer Success team.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Make appropriate deployment status updates in project management platform.</span></label>
-              <label class="slide-checklist-item"><input type="checkbox"><span>Customer Success to conduct follow-up review with client (QBR) and execute expansion and retention strategies (see Customer Success Strategy slide).</span></label>
-            </div>
+          <div style="flex:1; border:1px solid #272729; border-radius:1cqw; padding:2cqw; background:#1B1B1D; display:flex; align-items:center; justify-content:center;">
+            <div class="slide-case-title" style="font-size:2.5cqw;">Legal</div>
+          </div>
+          <div style="flex:1; border:1px solid #272729; border-radius:1cqw; padding:2cqw; background:#1B1B1D; display:flex; align-items:center; justify-content:center;">
+            <div class="slide-case-title" style="font-size:2.5cqw;">Finance</div>
           </div>
         </div>
         <span class="slide-number">4</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Forward Deployment: Playbook Variations</div>
-        <div class="slide-cases" style="margin-top:2.5cqw; flex:none;">
-          <div class="slide-case slide-case-toponly">
-            <div style="display:flex; align-items:center; gap:1cqw;">
-              <div class="slide-case-title">Technical Questions</div>
-              <div class="slide-dropdown" id="tech-modality-dropdown">
-                <div class="slide-dropdown-selected">Cascaded</div>
-                <div class="slide-dropdown-arrow"></div>
-                <div class="slide-dropdown-menu">
-                  <div class="slide-dropdown-item slide-dropdown-parent" data-value="voice">Voice &#9656;</div>
-                  <div class="slide-dropdown-drawer" data-parent="voice" style="display:none;">
-                    <div class="slide-dropdown-item slide-dropdown-sub active" data-value="basic-cascaded">Cascaded</div>
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="hybrid">Hybrid</div>
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="fused">Fused / Real-Time</div>
-                  </div>
-                  <div class="slide-dropdown-item slide-dropdown-parent" data-value="text">Text &#9656;</div>
-                  <div class="slide-dropdown-drawer" data-parent="text" style="display:none;">
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="chat-api">Chat API Endpoint</div>
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="chat-websocket">Chat WebSocket</div>
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="chat-a2a">Chat A2A</div>
-                    <div class="slide-dropdown-item slide-dropdown-sub" data-value="sms">SMS</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="slide-tech-checklist" id="tech-modality-checklist">
-              <div class="slide-tech-panel active" data-tech="basic-cascaded">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What orchestration framework is used (for telephony, transport, speech recognition/turn detection)?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If LiveKit, complete this <a href="https://docs.coval.ai/concepts/agents/connections/livekit" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If PipeCat Cloud, complete this <a href="https://docs.coval.ai/concepts/agents/connections/pipecat" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>SST / TTS model provider and version</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>Is additional context captured for expression, tone, and prosody?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>LLM model provider and version</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What knowledge bases are connected and how?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>When are resources and tool calls made during the workflow and what tools are used?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What policies and guardrails are set up during the workflow and when/how are they executed?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What agent tracing platform are you using today?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What are specific use-cases leveraging this voice AI architecture (Inbound, Outbound)?</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="hybrid" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What orchestration framework is used (for telephony, transport, speech recognition/turn detection)?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span style="color:#0A1F3B; font-weight:600;">Which components or processes are fused vs. cascaded?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span style="color:#0A1F3B; font-weight:600;">How is the context of fused processes stored?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If LiveKit, complete this <a href="https://docs.coval.ai/concepts/agents/connections/livekit" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>If PipeCat Cloud, complete this <a href="https://docs.coval.ai/concepts/agents/connections/pipecat" target="_blank" style="color:#0A1F3B;">setup</a>.</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>SST / TTS model provider and version</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>Is additional context captured for expression, tone, and prosody?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>LLM model provider and version</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What knowledge bases are connected and how?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>When are resources and tool calls made during the workflow and what tools are used?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What policies and guardrails are set up during the workflow and when/how are they executed?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What agent tracing platform are you using today?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What are specific use-cases leveraging this voice AI architecture.</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="fused" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>Are you using an orchestration framework or a direct connection? If direct connection, what type?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Realtime (S2S) or Duplex model provider and version</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>When are resources and tool calls made during the workflow and what tools are used?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What policies and guardrails are set up during the workflow and when/how are they executed?</span></label>
-                <label class="slide-checklist-item" style="margin-left:4cqw;"><input type="checkbox"><span>What agent tracing platform are you using today?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Specific use-cases leveraging this fused architecture.</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="chat-api" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the HTTP API endpoint URL and authorization format?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Does the chat agent require an initialization endpoint?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the expected request/response JSON format (will custom array be needed)?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Are there custom headers or payload wrappers needed?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>How does the agent signal conversation end (status: "ended" or other)?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Are there template variables needed for session/context management?</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="chat-websocket" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the wss:// endpoint URL and authorization format?</span></label>
-                <label class="slide-checklist-item"  style="margin-left:2cqw;"><input type="checkbox"><span>Does it require an HTTP-first session provisioning step before WebSocket connection?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the outbound message JSON format? (e.g. {"type": "message", "text": "{{message}}"})</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the inbound message format and how should agent responses be extracted?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Is there a handshake/ready signal before conversation starts?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Are there message batching requirements?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the concurrency limit? (Coval Max: 8 simultaneous WebSocket simulations)</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="chat-a2a" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the A2A JSON-RPC endpoint URL?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What authentication method is used? (OAuth2 client_credentials or static bearer token)</span></label>
-                <label class="slide-checklist-item"  style="margin-left:2cqw;"><input type="checkbox"><span>If OAuth2, what is the token exchange endpoint and payload format? (Form-encoded vs. JSON)</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the response message path? (default: result.artifacts.0.parts.0.text)</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>How are contextId and taskId managed across conversation turns?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What are the end state values for conversation termination? (Default: completed, failed)</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Is all response content serialized into parts[*].text? (Content outside JSON-RPC is invisible to simulators)</span></label>
-              </div>
-              <div class="slide-tech-panel" data-tech="sms" style="display:none;">
-                <label class="slide-checklist-item"><input type="checkbox"><span>What SMS gateway provider is used and how is it configured?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>What is the message format and character limits?</span></label>
-                <label class="slide-checklist-item" style="margin-left:2cqw;"><input type="checkbox"><span>Two-way or one-way communication?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What is the maximum expected conversation duration? (Coval max: 15 min per conversation)</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What concurrency is needed for parallel testing?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>What LLM/logic powers the chat agent responses?</span></label>
-                <label class="slide-checklist-item"><input type="checkbox"><span>Specific use-cases leveraging SMS agents.</span></label>
-              </div>
-            </div>
-          </div>
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Internal Quick Reference Guide</div>
-            <div id="domain-personas-panel" style="margin-top:1.5cqw;">
-              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Short-Term:</strong> Catalog the most common personas and metrics across deployments and correlate these with business outcomes. Create internal agents to allow Coval GTM teams to quickly reference playbook materials via query.</div>
-              <div class="slide-case-desc" style="margin-bottom:1cqw;"> &#9656; <strong>Long-Term:</strong> Work with Data Science to determine which personas and metrics across past deployments lead to high usage patterns and perform best for specific metrics and use-cases.</div>
-              <div class="slide-accordion">
-                <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                  <div class="slide-case-title" style="font-size:1.6cqw;">Domain Personas: Financial Services</div>
-                  <span class="slide-accordion-icon">+</span>
-                </div>
-                <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-                <div class="slide-accordion-body" style="display:none;">
-                  <div class="slide-case-desc">&#9656; Frustrated customer disputing a fraudulent charge</div>
-                  <div class="slide-case-desc">&#9656; First-time loan applicant confused about requirements</div>
-                  <div class="slide-case-desc">&#9656; High-net-worth client requesting urgent transfer</div>
-                </div>
-              </div>
-              <div class="slide-accordion">
-                <div class="slide-accordion-header" style="margin-top:1.5cqw;">
-                  <div class="slide-case-title" style="font-size:1.6cqw;">Observability-Business Metrics Map</div>
-                  <span class="slide-accordion-icon">+</span>
-                </div>
-                <div style="height:1px; background:#1a1a1a; margin:0.3cqw 0 0.5cqw 0;"></div>
-                <div class="slide-accordion-body" style="display:none;">
-                  <div class="slide-case-desc" style="margin-top:0.4cqw;">&#9656; Conversation Metrics &#8594; Resolution Rate</div>
-                  <div class="slide-case-desc" style="margin-top:0.4cqw;">&#9656; Audio Quality Metrics &#8594; CSAT</div>
-                  <div class="slide-case-desc" style="margin-top:0.4cqw; margin-left:2cqw;">&#9656; Latency</div>
-                  <div class="slide-case-desc" style="margin-top:0.4cqw; margin-left:2cqw;">&#9656; Audio Clarity Score</div>
-                  <div class="slide-case-desc" style="margin-top:0.4cqw;">&#9656; Tool Call Success &#8594; Hallucination Rate</div>
-                  <div class="slide-case-desc" style="margin-top:0.4cqw;">&#9656; Task Success &#8594; Compliance Rate</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="slide-title slide-title-full">AI Best Practices</div>
         <span class="slide-number">5</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Customer Success Strategy</div>
-        <div class="slide-cases" style="margin-top:3cqw">
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Deepen Engagement</div>
-            <div class="slide-case-desc" style="margin-top:1cqw;"><strong><em>Improve Coval stickiness and deepen simulation usage:</em></strong></div>
-            <div class="slide-case-desc">&#9656; Create variations in agents to improve voice AI stack</div>
-            <div class="slide-case-desc">&#9656; Expand call types, personas, test sets, and templates to capture more edge cases</div>
-            <div class="slide-case-desc">&#9656; Build custom metrics, integrate tracing and mirror production using concurrency testing</div>
-            <div class="slide-case-desc">&#9656; Expand agent workflows and modalities to include text-based agents, other languages, custom workflows, etc.</div>
-            <div class="slide-case-desc">&#9656; Optimize monitors and expand usage across DEV/QA/PROD environments</div>
-          </div>
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Grow Team Adoption</div>
-            <div class="slide-case-desc" style="margin-top:1cqw;"><strong><em>Expand usage and buy-in across client Eng/PM/Ops teams:</em></strong></div>
-            <div class="slide-case-desc">&#9656; Continue to translate observability metrics to <span class="slide-tooltip" data-tip="Ex: Resolution Rate, Containment Rate, Task Completion, Escalation Rate, Compliance Adherence, Revenue Impact">business KPIs</span> to prove value</div>
-            <div class="slide-case-desc">&#9656; Grow adoption across adjacent teams, source other pain points and use-cases</div>
-            <div class="slide-case-desc">&#9656; Integrate Human Review issues into client systems to reduce debugging time</div>
-            <div class="slide-case-desc">&#9656; Build behavior and action by setting a recurring cadence to review dashboards and training gaps</div>
-            <div class="slide-case-desc">&#9656; Make value visible to budget decision-makers and leadership</div>
-          </div>
-          <div class="slide-case slide-case-toponly">
-            <div class="slide-case-title">Support Retention</div>
-            <div class="slide-case-desc" style="margin-top:1cqw;"><strong><em>Continue Coval platform enablement and client satisfaction:</em></strong></div>
-            <div class="slide-case-desc">&#9656; Prioritize client agent initiatives based on impact and strategic importance, increase NRR</div>
-            <div class="slide-case-desc">&#9656; Monitor simulation usage and adoption patterns to monitor account health and reduce potential churn</div>
-            <div class="slide-case-desc">&#9656; Setup power user feedback channels to help engineering quickly iterate product and reduce friction</div>
-            <div class="slide-case-desc">&#9656; Automate outreach for smaller, low-touch clients to scale customer success operations.</div>
-            <div class="slide-case-desc">&#9656; Run QBRs with clients, partner with teams to help build more advanced voice and chat agents</div>
-          </div>
-        </div>
+        <div class="slide-title slide-title-full">Agent Best Practices</div>
         <span class="slide-number">6</span>
+      </div>
+
+      <div class="slide slide-flex">
+        <div class="slide-title slide-title-full">Tracking Usage</div>
+        <span class="slide-number">7</span>
+      </div>
+
+      <div class="slide slide-flex">
+        <div class="slide-title slide-title-full">Guardrails & Costs</div>
+        <span class="slide-number">8</span>
+      </div>
+
+      <div class="slide slide-flex">
+        <div class="slide-title slide-title-full">Timeline</div>
+        <div class="slide-meta" style="margin-top:2cqw; font-size:2.5cqw;">30-60-90 Timeline</div>
+        <span class="slide-number">9</span>
       </div>
 
     </div>
@@ -1715,7 +1277,7 @@
 
         if (i < slides.length - 1) {
           var downBtn = document.createElement('button');
-          downBtn.className = 'slide-nav-btn';
+          downBtn.className = 'slide-nav-btn slide-nav-down';
           downBtn.innerHTML = '<svg viewBox="0 0 24 48" width="18" height="44" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"><line x1="12" y1="4" x2="12" y2="40" fill="none"/><polygon points="6,32 12,44 18,32"/></svg>';
           downBtn.onclick = function() {
             var nextWrapper = wrapper.nextElementSibling;
@@ -1725,6 +1287,20 @@
         }
 
         wrapper.appendChild(nav);
+
+        slide.onclick = function() {
+          wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        };
+      });
+    })();
+
+    // Scroll-driven background fade to black
+    (function() {
+      var overlay = document.getElementById('bg-overlay');
+      window.addEventListener('scroll', function() {
+        var scrollFrac = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
+        var darkness = scrollFrac * 0.95;
+        overlay.style.background = 'linear-gradient(to bottom, rgba(0,0,0,' + (darkness * 0.5) + ') 0%, rgba(0,0,0,' + (0.4 + darkness * 0.5) + ') 40%, rgba(0,0,0,' + (0.5 + darkness) + ') 100%)';
       });
     })();
 
