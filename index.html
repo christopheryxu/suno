@@ -80,7 +80,7 @@
     width: 40px;
     height: 80px;
     border-radius: 20px;
-    border: 1px solid #ffffff;
+    border: 1px solid #000000;
     background: #ffffff;
     cursor: pointer;
     display: flex;
@@ -118,7 +118,7 @@
     width: 60vw;
     aspect-ratio: 16 / 9;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
+    border: none;
     flex-shrink: 0;
     position: relative;
     z-index: 2;
@@ -130,11 +130,23 @@
     transition: border-color 0.4s ease;
   }
   .slide:hover {
-    border-color: #444;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
   }
   .slide-flex {
     display: flex;
     flex-direction: column;
+  }
+  .slide-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-content-top {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .slide-header {
     display: flex;
@@ -167,6 +179,7 @@
     display: inline-block;
     align-self: flex-start;
     padding: 1cqw 3cqw 2cqw 1.5cqw;
+    margin-bottom: 1.5cqw;
     border: none;
     position: relative;
   }
@@ -234,8 +247,8 @@
   .slide-subtitle {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 4cqw;
-    line-height: 1.3;
+    font-size: 2cqw;
+    line-height: 1.4;
     color: #000;
     text-align: left;
     max-width: 100%;
@@ -845,7 +858,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5cqw;
+    gap: 1.2cqw;
     margin-top: 5cqw;
   }
   .slide-swivel-btn {
@@ -867,7 +880,7 @@
   .slide-swivel-text {
     position: relative;
     overflow: hidden;
-    width: 38cqw;
+    width: 28cqw;
     height: 4.5cqw;
     background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
     border-radius: 2cqw;
@@ -901,6 +914,18 @@
     opacity: 0;
     transform: translateY(-100%);
   }
+  .slide-swivel-panels {
+    flex: 1;
+    position: relative;
+  }
+  .slide-swivel-panel {
+    display: none;
+  }
+  .slide-swivel-panel.active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
   .slide-flow {
     display: flex;
     flex-direction: column;
@@ -928,7 +953,7 @@
   .slide-flow-num {
     width: 3cqw;
     height: 3cqw;
-    background: #323234;
+    background: #4a4a4c;
     color: #fff;
     font-family: 'Questrial', sans-serif;
     font-weight: 600;
@@ -936,7 +961,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0.5cqw;
+    border-radius: 50%;
     transition: background 0.2s ease;
   }
   .slide-flow-node.active .slide-flow-num {
@@ -982,36 +1007,44 @@
     flex: 0 0 45%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 0;
+  }
+  .slide-statements-list .slide-statement:first-child {
+    padding-top: 0;
   }
   .slide-statement {
     font-family: 'Questrial', sans-serif;
     font-weight: 600;
-    font-size: 2cqw;
+    font-size: 2.4cqw;
+    line-height: 1.3;
     color: rgba(0,0,0,0.4);
-    padding: 1.5cqw 2cqw;
-    border-left: none;
+    padding: 1.2cqw 0;
     cursor: pointer;
     transition: color 0.3s ease;
-    position: relative;
-    padding-left: 2.5cqw;
+    display: flex;
+    align-items: center;
+    gap: 1.5cqw;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
-  .slide-statement::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.8cqw;
-    bottom: 0.8cqw;
-    width: 3px;
-    background: transparent;
-    border-radius: 1.5px;
+  .slide-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    flex: 0 0 auto;
+    align-self: center;
     transition: background 0.3s ease;
+  }
+  .slide-statement.active .slide-dot {
+    background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
   }
   .slide-statement.active {
     color: #000;
   }
-  .slide-statement.active::before {
-    background: #EB7422;
+  .slide-statement.active .slide-statement-icon-wrap .slide-statement-icon {
+    background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
   }
   .slide-statement:hover:not(.active) {
     color: rgba(0,0,0,0.7);
@@ -1048,6 +1081,21 @@
     font-weight: 400;
     font-size: 1.8cqw;
     color: rgba(0,0,0,0.3);
+  }
+  .banner-description {
+    margin-top: auto;
+    background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
+    padding: 1.5cqw 3cqw;
+    border-radius: 0.8cqw;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, padding 0.3s ease;
+    cursor: pointer;
+  }
+  .banner-description:hover {
+    transform: scale(1.03);
+    padding: 2cqw 3cqw;
   }
   .slide-number {
     position: absolute;
@@ -1149,34 +1197,63 @@
     <div id="slides">
       <div class="slide slide-flex">
         <div class="slide-title slide-title-full">What Are We Doing?</div>
+        <div class="slide-content">
+        <div style="display:flex; gap:3cqw; margin-top:3cqw;">
+          <div style="flex:1;">
+            <span style="width:4cqw; height:4cqw; margin-bottom:1.5cqw; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="url(#grad-icon)" stroke-width="2" style="width:3.5cqw; height:3.5cqw;"><defs><linearGradient id="grad-icon" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#F5A028"/><stop offset="50%" style="stop-color:#E64082"/><stop offset="100%" style="stop-color:#EB7422"/></linearGradient></defs><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div class="slide-case-title" style="font-size:2.8cqw;">Jam with Internal Teams</div>
+            <div class="slide-box-desc" style="font-size:2cqw; line-height:1.5; margin-top:2cqw;">Embed in non-engineering teams to identify high-impact workflows that can be reimagined using AI.</div>
+          </div>
+          <div style="flex:1;">
+            <span style="width:4cqw; height:4cqw; margin-bottom:1.5cqw; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="url(#grad-icon)" stroke-width="2" style="width:3.5cqw; height:3.5cqw;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+            <div class="slide-case-title" style="font-size:2.8cqw;">Enable Suno Talent</div>
+            <div class="slide-box-desc" style="font-size:2cqw; line-height:1.5; margin-top:2cqw;">Train and enable internal teams to understand how to use AI and how to connect the right AI tool for the right task.</div>
+          </div>
+          <div style="flex:1;">
+            <span style="width:4cqw; height:4cqw; margin-bottom:1.5cqw; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="url(#grad-icon)" stroke-width="2" style="width:3.5cqw; height:3.5cqw;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+            <div class="slide-case-title" style="font-size:2.8cqw;">Change the Culture</div>
+            <div class="slide-box-desc" style="font-size:2cqw; line-height:1.5; margin-top:2cqw;">Improve <b style="color:#EB7422;">measurable</b> business outcomes while building a culture that balances effective AI usage and experimentation.</div>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:center; margin:1.5cqw 0;">
+          <img src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91); width:3cqw; height:6cqw; transform: rotate(90deg); filter: brightness(0) invert(1) brightness(0.91);">
+        </div>
+        <div class="banner-description">
+          <div style="color:#fff; font-weight:600; font-family:'Manrope',sans-serif; font-size:2cqw; line-height:1.4; text-align:left;">
+            <div>Internal productivity and intelligent AI use will become a structural competitive advantage for Suno</div>
+            <div>by <span id="banner-cycle-text">increasing company speed.</span></div>
+          </div>
+        </div>
+        </div>
         <span class="slide-number">1</span>
       </div>
 
       <div class="slide slide-flex">
         <div class="slide-title slide-title-full">Why Are We Doing It?</div>
+        <div class="slide-content">
         <div class="slide-statements" id="why-statements">
           <div class="slide-statements-list">
-            <div class="slide-statement active" data-index="0"><span class="slide-statement-num">1.</span> AI is reshaping every industry — we need to lead, not follow</div>
-            <div class="slide-statement" data-index="1"><span class="slide-statement-num">2.</span> Competitors are already deploying AI at scale</div>
-            <div class="slide-statement" data-index="2"><span class="slide-statement-num">3.</span> Our teams spend too much time on repetitive tasks</div>
-            <div class="slide-statement" data-index="3"><span class="slide-statement-num">4.</span> Talent expects modern AI-powered tooling</div>
-            <div class="slide-statement" data-index="4"><span class="slide-statement-num">5.</span> Data-driven decisions require smarter infrastructure</div>
-            <div class="slide-statement" data-index="5"><span class="slide-statement-num">6.</span> Early adoption compounds — the ROI grows over time</div>
+            <div class="slide-statement active" data-index="0"><div class="slide-dot"></div>Our teams spend too much time on repetitive tasks</div>
+            <div class="slide-statement" data-index="1"><div class="slide-dot"></div>Talent expects modern AI-powered tooling</div>
+            <div class="slide-statement" data-index="2"><div class="slide-dot"></div>Data-driven decisions require smarter infrastructure</div>
+            <div class="slide-statement" data-index="3"><div class="slide-dot"></div>Early adoption compounds — the ROI grows over time</div>
+            <div class="slide-statement" data-index="4"><div class="slide-dot"></div>Case Study</div>
           </div>
           <div class="slide-carousel">
             <div class="slide-carousel-item active" data-index="0"><span class="slide-carousel-placeholder">Image 1</span></div>
             <div class="slide-carousel-item" data-index="1"><span class="slide-carousel-placeholder">Image 2</span></div>
             <div class="slide-carousel-item" data-index="2"><span class="slide-carousel-placeholder">Image 3</span></div>
             <div class="slide-carousel-item" data-index="3"><span class="slide-carousel-placeholder">Image 4</span></div>
-            <div class="slide-carousel-item" data-index="4"><span class="slide-carousel-placeholder">Image 5</span></div>
-            <div class="slide-carousel-item" data-index="5"><span class="slide-carousel-placeholder">Image 6</span></div>
+            <div class="slide-carousel-item" data-index="4"><span class="slide-carousel-placeholder">Case Study</span></div>
           </div>
+        </div>
         </div>
         <span class="slide-number">2</span>
       </div>
 
       <div class="slide slide-flex">
         <div class="slide-title slide-title-full">How Will It Work?</div>
+        <div class="slide-content-top">
         <div class="slide-flow" style="margin-top:5cqw;">
           <div class="slide-flow-row">
             <div class="slide-flow-node active"><span class="slide-flow-num">1</span><span class="slide-flow-label">Project Scoping</span></div>
@@ -1185,9 +1262,9 @@
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
             <div class="slide-flow-node"><span class="slide-flow-num">3</span><span class="slide-flow-label">Minimum Scope</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">4</span><span class="slide-flow-label">Data Preparation</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">4</span><span class="slide-flow-label">Data Integration</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">5</span><span class="slide-flow-label">Privacy & Security</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">5</span><span class="slide-flow-label">Security & Governance</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
             <div class="slide-flow-node"><span class="slide-flow-num">6</span><span class="slide-flow-label">LLM Evals</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
@@ -1196,11 +1273,13 @@
             <div class="slide-flow-node"><span class="slide-flow-num">8</span><span class="slide-flow-label">Team Assembly</span></div>
           </div>
         </div>
+        </div>
         <span class="slide-number">3</span>
       </div>
 
       <div class="slide slide-flex">
         <div class="slide-title slide-title-full">Adoption Team Goals</div>
+        <div class="slide-content-top">
         <div class="slide-toggle-wrap" style="margin-top:2cqw;">
           <div id="goals-toggle" class="slide-toggle slide-toggle-goals" style="width:100%;">
             <div class="slide-toggle-option active" data-target="growth">Growth</div>
@@ -1222,11 +1301,13 @@
             <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">Finance goals and initiatives will be displayed here.</div>
           </div>
         </div>
+        </div>
         <span class="slide-number">4</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Best Practices Using AI</div>
+        <div class="slide-title slide-title-full">Best Practices Using AI Agents</div>
+        <div class="slide-content">
         <div class="slide-swivel" id="ai-swivel">
           <button class="slide-swivel-btn" id="ai-swivel-left">
             <img src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.6); width:1.5cqw; height:4.5cqw; transform: scaleX(-1);">
@@ -1234,30 +1315,50 @@
           <div class="slide-swivel-text">
             <div class="slide-swivel-item active" data-index="0"><span>Prompting</span></div>
             <div class="slide-swivel-item" data-index="1"><span>Model Selection</span></div>
-            <div class="slide-swivel-item" data-index="2"><span>Context Windows</span></div>
-            <div class="slide-swivel-item" data-index="3"><span>Output Validation</span></div>
-            <div class="slide-swivel-item" data-index="4"><span>Refinement</span></div>
-            <div class="slide-swivel-item" data-index="5"><span>Safety & Governance</span></div>
+            <div class="slide-swivel-item" data-index="2"><span>Context & Memory</span></div>
+            <div class="slide-swivel-item" data-index="3"><span>Building Skills</span></div>
+            <div class="slide-swivel-item" data-index="4"><span>Connecting Tools</span></div>
+            <div class="slide-swivel-item" data-index="5"><span>Output Validation</span></div>
+            <div class="slide-swivel-item" data-index="6"><span>Refinement & Evals</span></div>
+            <div class="slide-swivel-item" data-index="7"><span>Safety Guardrails</span></div>
           </div>
           <button class="slide-swivel-btn" id="ai-swivel-right">
             <img src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.6); width:1.5cqw; height:4.5cqw;">
           </button>
         </div>
+        <div class="slide-swivel-panels" id="ai-swivel-panels">
+          <div class="slide-swivel-panel active" data-panel="0">
+            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.2cqw;">System Prompt</div>
+                <div class="slide-box-desc" style="font-size:1.4cqw;">A foundational set of hidden instructions given to an LLM that defines its role, behavior, and output format.</div>
+              </div>
+              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.2cqw;">User Prompt</div>
+                <div class="slide-box-desc" style="font-size:1.4cqw;">The visible input a user provides to the LLM — the question, task, or instruction that drives the conversation.</div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-swivel-panel" data-panel="1"></div>
+          <div class="slide-swivel-panel" data-panel="2"></div>
+          <div class="slide-swivel-panel" data-panel="3"></div>
+          <div class="slide-swivel-panel" data-panel="4"></div>
+          <div class="slide-swivel-panel" data-panel="5"></div>
+          <div class="slide-swivel-panel" data-panel="6"></div>
+          <div class="slide-swivel-panel" data-panel="7"></div>
+        </div>
+        </div>
         <span class="slide-number">5</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Best Practices Using Agents</div>
+        <div class="slide-title slide-title-full">AI Usage & Costs</div>
         <span class="slide-number">6</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Usage, Guardrails, & Costs</div>
-        <span class="slide-number">7</span>
-      </div>
-
-      <div class="slide slide-flex">
         <div class="slide-title slide-title-full">Implementation Timeline</div>
+        <div class="slide-content-top">
         <div class="slide-toggle-wrap" style="margin-top:2cqw;">
           <div id="timeline-toggle" class="slide-toggle slide-toggle-3" style="width:100%;">
             <div class="slide-toggle-option active" data-target="30days">30 Days</div>
@@ -1275,7 +1376,8 @@
             <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">90-day milestones will be displayed here.</div>
           </div>
         </div>
-        <span class="slide-number">8</span>
+        </div>
+        <span class="slide-number">7</span>
       </div>
 
     </div>
@@ -1776,6 +1878,23 @@
       if (chevrons[0]) chevrons[0].classList.add('active-next');
     })();
 
+    // Banner cycle animation
+    (function() {
+      var el = document.getElementById('banner-cycle-text');
+      if (!el) return;
+      var phrases = ['increasing company speed.', 'boosting work efficiency.', 'improving creator experiences.', 'developing better talent.', 'reducing costs.'];
+      var current = 0;
+      el.style.transition = 'opacity 0.6s ease';
+      setInterval(function() {
+        el.style.opacity = '0';
+        setTimeout(function() {
+          current = (current + 1) % phrases.length;
+          el.textContent = phrases[current];
+          el.style.opacity = '1';
+        }, 600);
+      }, 2500);
+    })();
+
     // AI swivel subtitle
     (function() {
       var items = document.querySelectorAll('#ai-swivel .slide-swivel-item');
@@ -1784,11 +1903,14 @@
       var animating = false;
       var leftBtn = document.getElementById('ai-swivel-left');
       var rightBtn = document.getElementById('ai-swivel-right');
+      var panels = document.querySelectorAll('#ai-swivel-panels .slide-swivel-panel');
       function updateBtns() {
         leftBtn.style.opacity = current === 0 ? '0.2' : '1';
         leftBtn.style.pointerEvents = current === 0 ? 'none' : 'auto';
         rightBtn.style.opacity = current === items.length - 1 ? '0.2' : '1';
         rightBtn.style.pointerEvents = current === items.length - 1 ? 'none' : 'auto';
+        panels.forEach(function(p) { p.classList.remove('active'); });
+        if (panels[current]) panels[current].classList.add('active');
       }
       updateBtns();
       function go(dir) {
