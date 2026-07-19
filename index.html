@@ -177,7 +177,7 @@
     max-width: 100%;
     white-space: nowrap;
     padding-bottom: 1.5cqw;
-    margin-bottom: 1.5cqw;
+    margin-bottom: 2.5cqw;
     border-bottom: none;
     position: relative;
   }
@@ -1020,29 +1020,28 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.5cqw;
     height: 100%;
   }
   .modality-inner svg {
-    width: 13px;
-    height: 13px;
+    width: 1.3cqw;
+    height: 1.3cqw;
     flex-shrink: 0;
     display: block;
   }
   .modality-inner span {
-    font-size: 11px;
-    line-height: 0;
+    font-size: 1.1cqw;
+    line-height: 1;
     display: flex;
     align-items: center;
-    height: 11px;
   }
   .task-chip {
     font-family: 'Manrope', sans-serif;
-    font-size: 13px;
+    font-size: 1.2cqw;
     font-weight: 500;
-    padding: 6px 14px;
+    padding: 0.4cqw 1cqw;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 2cqw;
     background: #fff;
     color: #000;
     cursor: default;
@@ -1074,6 +1073,23 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: contain !important;
+  }
+  .cost-card:hover {
+    background: #f8f8f8;
+  }
+  .expandable-img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 100%;
+  }
+  .expandable-img.expanded {
+    transform: scale(2.5);
+    transform-origin: center center;
+    z-index: 100;
+    position: relative;
+    border: 1px solid #000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    cursor: zoom-out;
   }
   .slide.image-expanded,
   .slide.image-expanded .slide-content,
@@ -1126,13 +1142,14 @@
   .flow-detail-panel.active {
     display: flex;
     flex-direction: column;
-    gap: 3cqw;
+    gap: 2cqw;
   }
   #flow-detail-panels {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 3cqw;
   }
   .flow-detail-item {
     display: flex;
@@ -1142,10 +1159,10 @@
   .flow-detail-num {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
-    font-size: 5cqw;
+    font-size: 4cqw;
     line-height: 1.2;
     flex-shrink: 0;
-    width: 4cqw;
+    width: 3.5cqw;
     text-align: center;
     background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
     -webkit-background-clip: text;
@@ -1155,7 +1172,7 @@
   .flow-detail-text {
     font-family: 'Manrope', sans-serif;
     font-weight: 400;
-    font-size: 2.2cqw;
+    font-size: 1.8cqw;
     line-height: 1.4;
     color: rgba(0,0,0,0.7);
   }
@@ -1398,10 +1415,10 @@
           <div style="display:flex; align-items:center; gap:1.5cqw; align-self:flex-start;">
           <div class="slide-case-title" style="font-size:2.75cqw; white-space:nowrap;">Reason:</div>
           <div class="slide-dropdown" id="why-dropdown" style="font-size:1.5cqw;">
-            <span class="slide-dropdown-selected">The earlier the adoption, the more ROI will compound.</span>
+            <span class="slide-dropdown-selected">Everyone's workflow can be improved with AI. The earlier the adoption, the more ROI will compound.</span>
             <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
             <div class="slide-dropdown-menu">
-              <div class="slide-dropdown-item active" data-value="0">The earlier the adoption, the more ROI will compound.</div>
+              <div class="slide-dropdown-item active" data-value="0">Everyone's workflow can be improved with AI. The earlier the adoption, the more ROI will compound.</div>
               <div class="slide-dropdown-item" data-value="1">It's the right time. Advancements in open source models make it cheaper to build internal AI tools.</div>
               <div class="slide-dropdown-item" data-value="2">Each new class of reasoning models will unlock more AI-powered use cases.</div>
               <div class="slide-dropdown-item" data-value="3">Case studies of other internal company initiatives prove benefits.</div>
@@ -1484,16 +1501,16 @@
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
             <div class="slide-flow-node"><span class="slide-flow-num">5</span><span class="slide-flow-label">LLM Evals & Human Review</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">6</span><span class="slide-flow-label">Build & Pilot</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">6</span><span class="slide-flow-label">Build, Train, Pilot</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">7</span><span class="slide-flow-label">Measurement & Iteration</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">7</span><span class="slide-flow-label">Measure, Iterate, Expand</span></div>
           </div>
         </div>
         <div id="flow-detail-panels">
           <div class="flow-detail-panel active" data-node="0">
             <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Identify domain experts and end users for each internal team, include cross-functional team members.</span></div>
             <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Map existing team workflows to find automation opportunities.</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Determine if workflow tasks are suited for LLMs and likely to yield productivity benefits.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Determine if workflow tasks are suited for LLMs/AI agents and likely to yield productivity benefits.</span></div>
           </div>
           <div class="flow-detail-panel" data-node="1">
             <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define clear success criteria by quantifying productivity or financial impact.</span></div>
@@ -1524,24 +1541,27 @@
             </div>
           </div>
           <div class="flow-detail-panel" data-node="3">
-            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Audit data sources and assess quality and accessibility</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Build connectors to internal tools and databases</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Establish data pipelines for real-time or batch processing</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Identify and review data source quality and access policies to automate tasks. Gather example input and output data.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Determine data infrastructure and technical integration needs data processing and AI agent tool use.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Define role-based access controls, guardrails for input and output data, and other security and compliance needs.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">4</span><span class="flow-detail-text">Build any authenticated connectors or custom MCP servers to access internal tools and databases.</span></div>
           </div>
           <div class="flow-detail-panel" data-node="4">
-            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define data access policies and PII handling rules</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Implement authentication and role-based access controls</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Conduct security review and compliance audit</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Identify each LLM action in the workflow. Determine specific evaluation criteria and scoring methodology for each action.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Determine whether the evaluation suite can be assigned to LLM-as-a-Judge or for human review.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Define a golden test set with edge case and adversarial coverage of the workflow.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">4</span><span class="flow-detail-text">Construct test cases and design human review approval and escalation processes.</span></div>
           </div>
           <div class="flow-detail-panel" data-node="5">
-            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define evaluation criteria and quality benchmarks</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Build automated test suites for model outputs</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Compare model performance across cost, speed, and accuracy</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Prototype the simplest version that solves the core problem, partnering with engineering if needed.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Demo and train users on how to use the prototype within their workflow while educating them on AI best practices.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Run a 2-week pilot with the internal team on a real workflow, collecting feedback daily.</span></div>
           </div>
           <div class="flow-detail-panel" data-node="6">
-            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Design review and approval workflows for AI outputs</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Set escalation paths for low-confidence results</span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Train team members on when to override vs. trust the model</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Measure impact quantitatively and qualitatively — track hours saved, error reduction, and user satisfaction to build an ROI case.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Iterate based on what breaks by adjusting prompts and deciding if this needs deeper engineering support.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Compare model performance across cost, speed, and accuracy.</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">4</span><span class="flow-detail-text">Expand scope to more advanced and complex workflows, increase team adoption, and identify new high-value use cases across the organization.</span></div>
           </div>
         </div>
         </div>
@@ -1689,10 +1709,9 @@
             <div class="slide-swivel-item" data-index="2"><span>Context & Memory</span></div>
             <div class="slide-swivel-item" data-index="3"><span>Building Skills</span></div>
             <div class="slide-swivel-item" data-index="4"><span>Connecting Tools</span></div>
-            <div class="slide-swivel-item" data-index="5"><span>Output Validation</span></div>
-            <div class="slide-swivel-item" data-index="6"><span>Refinement & Evals</span></div>
-            <div class="slide-swivel-item" data-index="7"><span>Safety Guardrails</span></div>
-            <div class="slide-swivel-item" data-index="8"><span>Usage & Costs</span></div>
+            <div class="slide-swivel-item" data-index="5"><span>Output Evaluation</span></div>
+            <div class="slide-swivel-item" data-index="6"><span>Safety Guardrails</span></div>
+            <div class="slide-swivel-item" data-index="7"><span>Usage & Costs</span></div>
           </div>
           <button class="slide-swivel-btn" id="ai-swivel-right">
             <img src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.6); width:1.5cqw; height:4.5cqw;">
@@ -1700,20 +1719,26 @@
         </div>
         <div class="slide-swivel-panels" id="ai-swivel-panels">
           <div class="slide-swivel-panel active" data-panel="0">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">System Prompt</div>
+            <div style="display:flex; gap:3cqw; margin-top:1.8cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">System Prompt</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">A foundational set of hidden instructions given to an LLM that defines its role, behavior, and output format.</div>
+                <img src="public/System Prompt.png" class="expandable-img" style="width:100%; border-radius:0.5cqw; margin-top:1cqw;">
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">User Prompt</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">The visible input a user provides to the LLM — the question, task, or instruction that drives the conversation.</div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">User Prompt</div>
+                <div class="slide-box-desc" style="font-size:1.7cqw;">The visible input a user provides to the LLM. It is the question, task, or instruction that drives the conversation.</div>
+                <div class="slide-box-desc" style="font-size:1.7cqw; margin-top:1cqw;">
+                  <div><b>1. Context:</b> Give the model the background it needs — who you are, what you're working on, and why.</div>
+                  <div><b>2. Task:</b> State exactly what you want the model to do — be specific and unambiguous.</div>
+                  <div><b>3. Format:</b> Define how the output should look — bullets, table, code, length, tone.</div>
+                  <div><b>4. Examples:</b> Show a sample of what good output looks like so the model can pattern-match.</div>
+                </div>
               </div>
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="1" style="flex-direction:column; justify-content:center;">
-            <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:2cqw; text-align:center;">The right model depends on the type of task and its complexity. There is a <b style="color:#EB7422;">fundamental tradeoff</b> between cost / latency and output accuracy / complexity.</div>
-            <hr style="border:none; height:1px; background:#e0e0e0; margin:1.5cqw 0 0 0;">
+            <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:3cqw; text-align:center;">The right model depends on the type of task and its complexity. There is a <b style="color:#EB7422;">fundamental tradeoff</b> between cost / latency and output accuracy / complexity.</div>
             <div style="display:flex; gap:3cqw; margin-top:1.5cqw; flex:1; align-items:stretch;">
               <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div style="display:flex; align-items:center; gap:1.5cqw; flex-wrap:nowrap;">
@@ -1764,6 +1789,26 @@
                   <span class="task-chip">Data Extraction</span>
                   <span class="task-chip">Data Transformation</span>
                 </div>
+                <div id="task-panel-image" class="modality-task-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Image Generation</span>
+                  <span class="task-chip">Image Editing</span>
+                  <span class="task-chip">Artifact Replacement</span>
+                  <span class="task-chip">Resolution Enhancement</span>
+                  <span class="task-chip">Extend Canvas</span>
+                </div>
+                <div id="task-panel-video" class="modality-task-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Video Generation</span>
+                  <span class="task-chip">Animate Static Frames</span>
+                  <span class="task-chip">Avatar Creation</span>
+                  <span class="task-chip">Edit Video</span>
+                  <span class="task-chip">Stylize and Color Video</span>
+                </div>
+                <div id="task-panel-audio" class="modality-task-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Audio Transcription</span>
+                  <span class="task-chip">Audio Translation</span>
+                  <span class="task-chip">Music Generation</span>
+                  <span class="task-chip">Sound Creation</span>
+                </div>
               </div>
               <div style="width:1px; background:#e0e0e0; flex-shrink:0;"></div>
               <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
@@ -1784,6 +1829,21 @@
                     <div class="slide-dropdown-item" data-value="gemini" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Gemini Logo.svg" style="height:1.2cqw; width:auto;">Gemini</div>
                   </div>
                 </div>
+                <div id="model-chips-anthropic" class="model-chips-panel" style="display:flex; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Claude Fable 5</span>
+                  <span class="task-chip">Claude Opus 4.8</span>
+                  <span class="task-chip">Claude Sonnet 5</span>
+                </div>
+                <div id="model-chips-openai" class="model-chips-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">GPT-5.6 Sol</span>
+                  <span class="task-chip">GPT-5.6 Terra</span>
+                  <span class="task-chip">GPT-5.6 Luna</span>
+                </div>
+                <div id="model-chips-gemini" class="model-chips-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Gemini 3.1 Pro</span>
+                  <span class="task-chip">Gemini 3.5 Flash</span>
+                  <span class="task-chip">Gemini 3.1 Flash-Lite</span>
+                </div>
                 <div class="slide-dropdown model-provider-dropdown" id="model-opensource-dropdown" style="font-size:1.2cqw; margin-top:0.5cqw; border:none; background:transparent; padding:0; display:none;">
                   <span class="slide-dropdown-selected" style="font-size:1.6cqw; display:flex; align-items:center; gap:0.5cqw;"><img src="public/Kimi Logo.svg" style="height:1.2cqw; width:auto;">Moonshot AI</span>
                   <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
@@ -1793,21 +1853,40 @@
                     <div class="slide-dropdown-item" data-value="zai" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Z.AI Logo.svg" style="height:1.2cqw; width:auto;">Z.AI</div>
                   </div>
                 </div>
+                <div id="model-chips-moonshot" class="model-chips-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Kimi K3</span>
+                  <span class="task-chip">Kimi K2.7-Code</span>
+                  <span class="task-chip">Kimi K2.6</span>
+                </div>
+                <div id="model-chips-deepseek" class="model-chips-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">DeepSeek-V4-Pro</span>
+                  <span class="task-chip">DeepSeek-V4-Flash</span>
+                </div>
+                <div id="model-chips-zai" class="model-chips-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">GLM-5.2</span>
+                  <span class="task-chip">GLM-5-Turbo</span>
+
+                </div>
               </div>
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="2">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Type of Memory</div>
+            <div style="display:flex; align-items:center; gap:2cqw; margin-top:3cqw; padding-left:2cqw;">
+              <div class="slide-case-title" style="font-size:2.75cqw; flex-shrink:0; width:20cqw;">The Need to Manage Context:</div>
+              <div class="slide-box-desc" style="font-size:1.6cqw; text-align:left;">LLMs have no built-in memory, every conversation starts from zero. Context and memory systems give agents the information they need to be useful: past conversations, team knowledge, and connected data. <b style="color:#EB7422;">Managing these well is the difference between a generic chatbot and a reliable teammate.</b></div>
+            </div>
+            <hr style="border:none; height:1px; background:#e0e0e0; margin:1.5cqw 0 0 0;">
+            <div style="display:flex; gap:3cqw; margin-top:1.5cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Type of Memory</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Short-term:</b> Conversation history within a single session.</div>
                   <div><b>Long-term:</b> Persistent knowledge stored across sessions (e.g., CLAUDE.md, vector stores).</div>
                   <div><b>External:</b> Connected data sources — CRM, docs, Slack, meeting transcripts.</div>
                 </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Managing Context</div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Managing Context</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Context windows:</b> How much information a model can process at once (varies by model).</div>
                   <div><b>Retrieval (RAG):</b> Pull relevant information from large datasets on demand.</div>
@@ -1817,16 +1896,17 @@
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="3">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">What Are Skills?</div>
+            <div style="display:flex; gap:3cqw; margin-top:1.8cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">What Are Skills?</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div>Reusable instructions that teach an AI agent <b>how</b> to perform a specific task consistently.</div>
                   <div>Skills encode team knowledge — style guides, review checklists, data formats — into repeatable prompts.</div>
                 </div>
+                <img src="public/Skill.png" class="expandable-img" style="width:80%; border-radius:0.5cqw; margin-top:1cqw; align-self:center;">
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Examples at Suno</div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Examples by Team</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Legal:</b> Contract review skill that flags non-standard clauses.</div>
                   <div><b>Growth:</b> Campaign brief generator from a few bullet points.</div>
@@ -1836,100 +1916,164 @@
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="4">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Tool Integrations</div>
+            <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:3cqw; text-align:center;">LLMs become much more powerful when connected to real data and tools. Tool use allow agents to take actions such as reading from databases, sending messages, updating records. <b style="color:#EB7422;">This turns conversations into workflows.</b></div>
+            <div style="display:flex; gap:3cqw; margin-top:1.5cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Types of Tools</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>MCP Servers:</b> Connect AI agents to internal tools — Slack, Google Drive, CRM, databases.</div>
                   <div><b>APIs:</b> Expose internal services so agents can read/write data programmatically.</div>
                   <div><b>Webhooks:</b> Trigger AI workflows from events in existing systems.</div>
                 </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Evaluation Criteria</div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">What is MCP?</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Security:</b> Does the tool meet Suno's data handling and access policies?</div>
-                  <div><b>Cost:</b> Per-seat vs. usage-based — what's the ROI at our scale?</div>
-                  <div><b>Risk:</b> What happens if the tool goes down or the vendor changes terms?</div>
+                  <div><b>Model Context Protocol:</b> An open standard that lets AI agents connect to external tools and data sources through a unified interface.</div>
+                  <div><b>How it works:</b> MCP servers expose capabilities (read files, query databases, send messages) that any compatible AI agent can discover and use.</div>
+                  <div><b>Why it matters:</b> Build once, connect anywhere — no custom integrations per tool or per model.</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="5">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Why Validate?</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div>AI outputs can be confident and wrong — especially for legal, financial, and compliance tasks.</div>
-                  <div>Validation catches hallucinations, formatting errors, and missed edge cases before they reach users.</div>
+            <div style="display:flex; gap:3cqw; margin-top:1.8cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; display:flex; flex-direction:column; padding:2cqw;">
+                <div style="display:flex; flex-direction:column; gap:1cqw; padding-bottom:2cqw; border-bottom:1px solid #e0e0e0;">
+                  <div class="slide-case-title" style="font-size:2.75cqw;">Why Validate?</div>
+                  <div class="slide-box-desc" style="font-size:1.7cqw;">
+                    <div>AI outputs can be confident and wrong — especially for legal, financial, and compliance tasks.</div>
+                    <div>Validation catches hallucinations, formatting errors, and missed edge cases before they reach users.</div>
+                  </div>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:1cqw; padding-top:2cqw;">
+                  <div class="slide-case-title" style="font-size:2.75cqw;">How to Validate</div>
+                  <div class="slide-box-desc" style="font-size:1.7cqw;">
+                    <div><b>Build evals:</b> Create automated evaluation pipelines that score model outputs against defined criteria — accuracy, format, tone, and completeness.</div>
+                    <div><b>Golden test set:</b> Curate a fixed set of representative inputs with known-good outputs. Run every prompt or model change against this set to catch regressions.</div>
+                  </div>
                 </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">How to Validate</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Human-in-the-loop:</b> Review and approve AI outputs before they go live.</div>
-                  <div><b>Automated checks:</b> Schema validation, keyword matching, confidence thresholds.</div>
-                  <div><b>A/B testing:</b> Compare AI-generated vs. manual outputs on real tasks.</div>
+              <div style="width:1px; background:#e0e0e0; flex-shrink:0;"></div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div style="display:flex; align-items:center; gap:1cqw; flex-wrap:nowrap;">
+                  <div class="slide-case-title" style="font-size:2.75cqw; white-space:nowrap;">LLM Evals</div>
+                  <div class="slide-dropdown" id="eval-type-dropdown" style="font-size:1.2cqw;">
+                    <span class="slide-dropdown-selected" style="font-size:1.6cqw;">LLM-as-a-Judge</span>
+                    <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
+                    <div class="slide-dropdown-menu">
+                      <div class="slide-dropdown-item active" data-value="llm-judge">LLM-as-a-Judge</div>
+                      <div class="slide-dropdown-item" data-value="human-review">Human Review</div>
+                    </div>
+                  </div>
+                </div>
+                <div id="eval-panel-llm-judge" style="margin-top:0.5cqw;">
+                  <div class="slide-box-desc" style="font-size:1.7cqw;">
+                    <div><b>What it is:</b> Use a separate LLM to score or grade the output of another model against a rubric.</div>
+                    <div><b>Best for:</b> High-volume tasks where manual review doesn't scale — content generation, summarization, classification.</div>
+                    <div><b>How to set up:</b> Define scoring criteria in a system prompt, feed output + expected result, collect pass/fail + reasoning.</div>
+                  </div>
+                </div>
+                <div id="eval-panel-human-review" style="display:none; margin-top:0.5cqw;">
+                  <div class="slide-box-desc" style="font-size:1.7cqw;">
+                    <div><b>What it is:</b> Domain experts manually review AI outputs for correctness, nuance, and edge cases.</div>
+                    <div><b>Best for:</b> High-stakes tasks — legal review, financial analysis, compliance — where errors have real consequences.</div>
+                    <div><b>How to set up:</b> Build a review queue, define acceptance criteria, sample a percentage of outputs for spot-checking.</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="6">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Iterative Refinement</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Prompt tuning:</b> Adjust instructions based on failure patterns and edge cases.</div>
-                  <div><b>Feedback loops:</b> Collect user feedback to improve prompts and workflows weekly.</div>
-                  <div><b>Version control:</b> Track prompt and skill changes over time.</div>
+            <div style="display:flex; gap:3cqw; margin-top:1.8cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1.5cqw;">
+                <span style="width:4cqw; height:4cqw; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="url(#grad-icon)" stroke-width="2" style="width:3.5cqw; height:3.5cqw;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+                <div class="slide-case-title" style="font-size:2.75cqw;">Input Guardrails</div>
+                <div class="slide-box-desc" style="font-size:2cqw; margin-top:0.5cqw;">
+                  <div><b>Prompt injection:</b> Detect and block adversarial inputs designed to override system instructions.</div>
+                  <div><b>Jailbreaking:</b> Prevent attempts to bypass model safety filters through crafted prompts.</div>
+                  <div><b>Privacy:</b> Filter PII and sensitive data before it reaches external models.</div>
                 </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">LLM Evals</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Accuracy:</b> Does the output match the expected result on a test set?</div>
-                  <div><b>Cost/speed:</b> Compare models on latency and token cost for each task.</div>
-                  <div><b>Regression testing:</b> Ensure new prompts don't break existing workflows.</div>
+              <div style="width:1px; background:#e0e0e0; flex-shrink:0;"></div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1.5cqw;">
+                <span style="width:4cqw; height:4cqw; display:flex; align-items:center; justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="url(#grad-icon)" stroke-width="2" style="width:3.5cqw; height:3.5cqw;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></span>
+                <div class="slide-case-title" style="font-size:2.75cqw;">Output Guardrails</div>
+                <div class="slide-box-desc" style="font-size:2cqw; margin-top:0.5cqw;">
+                  <div><b>Hallucinations:</b> Validate outputs against source data to catch fabricated facts or citations.</div>
+                  <div><b>Data leakage:</b> Scan responses for accidental exposure of internal or confidential information.</div>
+                  <div><b>Toxicity:</b> Filter outputs for harmful, biased, or inappropriate content before delivery.</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="slide-swivel-panel" data-panel="7">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Usage & Costs</div>
+            <div style="display:flex; gap:3cqw; margin-top:1.8cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Tracking Effective Usage</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Tracking:</b> Monitor per-team and per-tool AI usage to understand adoption patterns.</div>
-                  <div><b>Budgeting:</b> Set per-seat and per-project spend limits; review monthly.</div>
-                  <div><b>ROI:</b> Tie AI spend to measurable outcomes — hours saved, tasks automated, errors reduced.</div>
+                  <div><b>Team Dashboards:</b> Monitor which teams use AI most and where adoption lags.</div>
+                  <div><b>Tool-Level Metrics:</b> Token consumption, API calls, and active users per tool.</div>
+                  <div><b>Token Efficiency:</b> Measure time savings, cost savings, or revenue driven as a function of tokens spent. The goal is <b style="color:#EB7422;">ROI per token</b>.</div>
+                </div>
+                <div style="margin-top:1cqw;">
+                  <svg viewBox="0 0 400 160" style="width:100%; height:auto;">
+                    <defs>
+                      <linearGradient id="grad-area" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#F5A028; stop-opacity:0.15"/>
+                        <stop offset="50%" style="stop-color:#E64082; stop-opacity:0.15"/>
+                        <stop offset="100%" style="stop-color:#EB7422; stop-opacity:0.15"/>
+                      </linearGradient>
+                      <linearGradient id="grad-line" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#F5A028"/>
+                        <stop offset="50%" style="stop-color:#E64082"/>
+                        <stop offset="100%" style="stop-color:#EB7422"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Axes -->
+                    <line x1="50" y1="10" x2="50" y2="120" stroke="#ccc" stroke-width="1"/>
+                    <line x1="50" y1="120" x2="380" y2="120" stroke="#ccc" stroke-width="1"/>
+                    <!-- Y axis label -->
+                    <text x="30" y="70" font-family="Manrope,sans-serif" font-size="9" fill="#999" transform="rotate(-90,30,70)">Value ($)</text>
+                    <!-- X axis label -->
+                    <text x="215" y="135" font-family="Manrope,sans-serif" font-size="9" fill="#999" text-anchor="middle">Tokens Spent</text>
+                    <!-- Area fill -->
+                    <path d="M50,110 Q120,100 160,85 Q200,70 240,50 Q300,25 370,15 L370,120 L50,120 Z" fill="url(#grad-area)"/>
+                    <!-- Line -->
+                    <path d="M50,110 Q120,100 160,85 Q200,70 240,50 Q300,25 370,15" fill="none" stroke="url(#grad-line)" stroke-width="2.5"/>
+                    <!-- Data points -->
+                    <circle cx="50" cy="110" r="3" fill="#F5A028"/>
+                    <circle cx="160" cy="85" r="3" fill="#E64082"/>
+                    <circle cx="240" cy="50" r="3" fill="#EB7422"/>
+                    <circle cx="370" cy="15" r="3" fill="#EB7422"/>
+                    <!-- Labels -->
+                    <text x="58" y="96" font-family="Manrope,sans-serif" font-size="7" fill="#000">Time saved</text>
+                    <text x="130" y="75" font-family="Manrope,sans-serif" font-size="7" fill="#000">Cost reduced</text>
+                    <text x="200" y="40" font-family="Manrope,sans-serif" font-size="7" fill="#000">Revenue impact</text>
+                    <text x="345" y="8" font-family="Instrument Serif,serif" font-size="9" fill="#EB7422" font-weight="400">Continued ROI</text>
+                  </svg>
                 </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Safety Guardrails</div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Managing Costs</div>
                 <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Data policies:</b> Define what data can and cannot be sent to external models.</div>
-                  <div><b>Access controls:</b> Role-based permissions for AI tools and connectors.</div>
-                  <div><b>Guidelines:</b> Clear, practical AI usage guidelines — what's encouraged, what requires review.</div>
+                  <div><b>Model Routing:</b> Use cheaper models for simple tasks, reserve expensive models for complex ones.</div>
+                  <div><b>Spend Limits:</b> Set monthly budgets per team and alert before overruns.</div>
+                  <div><b>Open-Source Models:</b> Use hosted open-source inferencing (or self-host) where possible to reduce per-query costs at scale.</div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="slide-swivel-panel" data-panel="8">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Tracking Usage</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Per-team dashboards:</b> Monitor which teams use AI most and where adoption lags.</div>
-                  <div><b>Tool-level metrics:</b> Token consumption, API calls, and active users per tool.</div>
-                  <div><b>Adoption signals:</b> Track repeat usage, not just sign-ups — are people actually using it?</div>
-                </div>
-              </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Managing Costs</div>
-                <div class="slide-box-desc" style="font-size:1.7cqw;">
-                  <div><b>Model routing:</b> Use cheaper models for simple tasks, reserve expensive models for complex ones.</div>
-                  <div><b>Spend limits:</b> Set monthly budgets per team and alert before overruns.</div>
-                  <div><b>Open-source models:</b> Self-host where possible to reduce per-query costs at scale.</div>
+                <div style="display:flex; gap:2cqw; margin-top:1.5cqw;">
+                  <a href="https://openrouter.ai/" target="_blank" class="cost-card" style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:1.5cqw; display:flex; flex-direction:column; align-items:center; gap:1cqw; text-decoration:none; color:inherit; transition:background 0.2s ease; cursor:pointer;">
+                    <img src="public/OpenRouter.png" style="height:3cqw; width:auto;">
+                    <div class="slide-case-title" style="font-size:1.6cqw; text-align:center;">OpenRouter</div>
+                  </a>
+                  <a href="https://fireworks.ai/" target="_blank" class="cost-card" style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:1.5cqw; display:flex; flex-direction:column; align-items:center; gap:1cqw; transition:background 0.2s ease; cursor:pointer; text-decoration:none; color:inherit;">
+                    <div style="display:flex; align-items:center; justify-content:center; gap:1.5cqw;">
+                      <img src="public/Groq Logo.png" style="height:3cqw; width:auto;">
+                      <img src="public/Baseten Logo.svg" style="height:3cqw; width:auto;">
+                      <img src="public/Fireworks Logo.svg" style="height:3cqw; width:auto;">
+                    </div>
+                    <div class="slide-case-title" style="font-size:1.6cqw; text-align:center;">Open-Source Inferencing</div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -2008,7 +2152,7 @@
           <div id="timeline-panel-90days" class="slide-toggle-panel">
             <div style="display:flex; gap:3cqw; margin-top:2cqw;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Measurable Impact</div>
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Measure Impact</div>
                 <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Quantify business outcomes: efficiency gains, cost savings, error reduction</div>
                   <div>&#8226; Present ROI dashboard to leadership</div>
@@ -2535,6 +2679,32 @@
 
     })();
 
+    // Eval type dropdown
+    (function() {
+      var dropdown = document.getElementById('eval-type-dropdown');
+      if (!dropdown) return;
+      var selected = dropdown.querySelector('.slide-dropdown-selected');
+      var items = dropdown.querySelectorAll('.slide-dropdown-item');
+      var panels = { 'llm-judge': document.getElementById('eval-panel-llm-judge'), 'human-review': document.getElementById('eval-panel-human-review') };
+      dropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+      items.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          selected.textContent = item.textContent;
+          items.forEach(function(i) { i.classList.remove('active'); });
+          item.classList.add('active');
+          dropdown.classList.remove('open');
+          var val = item.getAttribute('data-value');
+          Object.values(panels).forEach(function(p) { if (p) p.style.display = 'none'; });
+          if (panels[val]) panels[val].style.display = 'block';
+        });
+      });
+      document.addEventListener('click', function() { dropdown.classList.remove('open'); });
+    })();
+
     // Model provider dropdowns
     (function() {
       ['model-proprietary-dropdown', 'model-opensource-dropdown'].forEach(function(id) {
@@ -2546,6 +2716,7 @@
           e.stopPropagation();
           dropdown.classList.toggle('open');
         });
+        var allChipPanels = document.querySelectorAll('.model-chips-panel');
         items.forEach(function(item) {
           item.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -2553,6 +2724,10 @@
             items.forEach(function(i) { i.classList.remove('active'); });
             item.classList.add('active');
             dropdown.classList.remove('open');
+            var val = item.getAttribute('data-value');
+            allChipPanels.forEach(function(p) { p.style.display = 'none'; });
+            var target = document.getElementById('model-chips-' + val);
+            if (target) target.style.display = 'flex';
           });
         });
         document.addEventListener('click', function() { dropdown.classList.remove('open'); });
@@ -2573,8 +2748,15 @@
           opt.classList.add('active');
           toggle.classList.remove('future');
           if (idx === 1) toggle.classList.add('future');
-          if (idx === 0) { propDropdown.style.display = ''; osDropdown.style.display = 'none'; }
-          else { propDropdown.style.display = 'none'; osDropdown.style.display = ''; }
+          var allChips = document.querySelectorAll('.model-chips-panel');
+          allChips.forEach(function(p) { p.style.display = 'none'; });
+          if (idx === 0) {
+            propDropdown.style.display = ''; osDropdown.style.display = 'none';
+            document.getElementById('model-chips-anthropic').style.display = 'flex';
+          } else {
+            propDropdown.style.display = 'none'; osDropdown.style.display = '';
+            document.getElementById('model-chips-moonshot').style.display = 'flex';
+          }
         });
       });
     })();
@@ -2611,6 +2793,14 @@
             taskDropdown.style.display = 'none';
             taskPanels.forEach(function(p) { p.style.display = 'none'; });
           }
+          // Show modality-specific chips
+          var modalityPanels = document.querySelectorAll('.modality-task-panel');
+          modalityPanels.forEach(function(p) { p.style.display = 'none'; });
+          var modalityMap = {1: 'image', 2: 'video', 3: 'audio'};
+          if (modalityMap[idx]) {
+            var panel = document.getElementById('task-panel-' + modalityMap[idx]);
+            if (panel) panel.style.display = 'flex';
+          }
         });
       });
     })();
@@ -2640,6 +2830,32 @@
         });
       });
       document.addEventListener('click', function() { dropdown.classList.remove('open'); });
+    })();
+
+    // Expandable images (Skill, System Prompt)
+    (function() {
+      var imgs = document.querySelectorAll('.expandable-img');
+      imgs.forEach(function(img) {
+        img.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var slide = img.closest('.slide');
+          if (img.classList.contains('expanded')) {
+            img.classList.remove('expanded');
+            if (slide) slide.classList.remove('image-expanded');
+          } else {
+            imgs.forEach(function(i) { i.classList.remove('expanded'); });
+            img.classList.add('expanded');
+            if (slide) slide.classList.add('image-expanded');
+          }
+        });
+      });
+      document.addEventListener('click', function() {
+        imgs.forEach(function(i) {
+          i.classList.remove('expanded');
+          var s = i.closest('.slide');
+          if (s) s.classList.remove('image-expanded');
+        });
+      });
     })();
 
     // Click to expand image panels
