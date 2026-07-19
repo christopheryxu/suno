@@ -130,7 +130,7 @@
     transition: border-color 0.4s ease;
   }
   .slide:hover {
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.15);
+    box-shadow: 0 0 0 1px #000;
   }
   .slide-flex {
     display: flex;
@@ -722,11 +722,14 @@
     border-color: #999;
   }
   .slide-dropdown-arrow {
-    width: 0;
-    height: 0;
-    border-left: 0.7cqw solid transparent;
-    border-right: 0.7cqw solid transparent;
-    border-top: 0.8cqw solid #000000;
+    width: 1.2cqw;
+    height: 1.2cqw;
+    transition: transform 0.2s ease;
+  }
+  .slide-dropdown-arrow svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
   .slide-dropdown-menu {
     display: none;
@@ -996,6 +999,74 @@
     filter: brightness(0) saturate(100%) invert(52%) sepia(89%) saturate(500%) hue-rotate(346deg) brightness(95%) !important;
     opacity: 0.7;
   }
+  .why-image-panel {
+    pointer-events: none;
+  }
+  .why-image-panel.active {
+    pointer-events: auto;
+  }
+  .why-image-panel.expanded {
+    transform: scale(1.8);
+    transform-origin: center center;
+    z-index: 100;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    cursor: zoom-out;
+  }
+  .why-image-panel.expanded img {
+    border: 1px solid #000;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain !important;
+  }
+  .slide.image-expanded,
+  .slide.image-expanded .slide-content,
+  .slide.image-expanded .why-image-area,
+  .slide.image-expanded #why-dropdown-wrap {
+    overflow: visible;
+    z-index: 10;
+  }
+  .flow-detail-panel {
+    display: none;
+  }
+  .flow-detail-panel.active {
+    display: flex;
+    flex-direction: column;
+    gap: 3cqw;
+  }
+  #flow-detail-panels {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flow-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5cqw;
+  }
+  .flow-detail-num {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;
+    font-size: 5cqw;
+    line-height: 1.2;
+    flex-shrink: 0;
+    min-width: 4cqw;
+    background: url('public/Suno Horizontal.jpg') center center / cover no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .flow-detail-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 2.2cqw;
+    line-height: 1.4;
+    color: rgba(0,0,0,0.7);
+  }
   .slide-statements {
     display: flex;
     gap: 3cqw;
@@ -1016,7 +1087,7 @@
   .slide-statement {
     font-family: 'Questrial', sans-serif;
     font-weight: 600;
-    font-size: 2.4cqw;
+    font-size: 2cqw;
     line-height: 1.3;
     color: rgba(0,0,0,0.4);
     padding: 1.2cqw 0;
@@ -1074,7 +1145,7 @@
   .slide-carousel-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   .slide-carousel-placeholder {
     font-family: 'Manrope', sans-serif;
@@ -1231,20 +1302,77 @@
       <div class="slide slide-flex">
         <div class="slide-title slide-title-full">Why Are We Doing It?</div>
         <div class="slide-content">
-        <div class="slide-statements" id="why-statements">
-          <div class="slide-statements-list">
-            <div class="slide-statement active" data-index="0"><div class="slide-dot"></div>Our teams spend too much time on repetitive tasks</div>
-            <div class="slide-statement" data-index="1"><div class="slide-dot"></div>Talent expects modern AI-powered tooling</div>
-            <div class="slide-statement" data-index="2"><div class="slide-dot"></div>Data-driven decisions require smarter infrastructure</div>
-            <div class="slide-statement" data-index="3"><div class="slide-dot"></div>Early adoption compounds — the ROI grows over time</div>
-            <div class="slide-statement" data-index="4"><div class="slide-dot"></div>Case Study</div>
+        <div id="why-dropdown-wrap" style="display:flex; flex-direction:column; flex:1; margin-top:2cqw;">
+          <div style="display:flex; align-items:center; gap:1.5cqw; align-self:flex-start;">
+          <div class="slide-case-title" style="font-size:2.2cqw; white-space:nowrap;">Reason:</div>
+          <div class="slide-dropdown" id="why-dropdown" style="font-size:2cqw;">
+            <span class="slide-dropdown-selected">Everyone can be more efficient. Everyone can be a force multiplier.</span>
+            <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
+            <div class="slide-dropdown-menu">
+              <div class="slide-dropdown-item active" data-value="0">Everyone can be more efficient. Everyone can be a force multiplier.</div>
+              <div class="slide-dropdown-item" data-value="1">The earlier the adoption, the more ROI will compound.</div>
+              <div class="slide-dropdown-item" data-value="2">It's the right time. Advancements in open source models make it cheaper to build internal AI tools.</div>
+              <div class="slide-dropdown-item" data-value="3">Each new class of reasoning models will unlock more AI-powered use cases.</div>
+              <div class="slide-dropdown-item" data-value="4">Case studies of other internal company initiatives prove benefits.</div>
+            </div>
           </div>
-          <div class="slide-carousel">
-            <div class="slide-carousel-item active" data-index="0"><span class="slide-carousel-placeholder">Image 1</span></div>
-            <div class="slide-carousel-item" data-index="1"><span class="slide-carousel-placeholder">Image 2</span></div>
-            <div class="slide-carousel-item" data-index="2"><span class="slide-carousel-placeholder">Image 3</span></div>
-            <div class="slide-carousel-item" data-index="3"><span class="slide-carousel-placeholder">Image 4</span></div>
-            <div class="slide-carousel-item" data-index="4"><span class="slide-carousel-placeholder">Case Study</span></div>
+          </div>
+          <div class="why-image-area" style="flex:1; position:relative; margin-top:0.5cqw;">
+            <div class="why-image-panel active" data-panel="0" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:0.8cqw; opacity:1; transition:opacity 0.4s ease;"><span class="slide-carousel-placeholder">Image 1</span></div>
+            <div class="why-image-panel" data-panel="1" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:0.8cqw; opacity:0; transition:opacity 0.4s ease;"><span class="slide-carousel-placeholder">Image 2</span></div>
+            <div class="why-image-panel" data-panel="2" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:0.8cqw; opacity:0; transition:opacity 0.4s ease;">
+              <img src="public/Intelligence vs. Cost.png" alt="Intelligence vs. Cost" style="width:100%; height:100%; object-fit:contain;">
+              <svg class="pen-circle-overlay" viewBox="0 0 200 140" style="position:absolute; bottom:23%; right:35%; width:28%; height:30%; overflow:visible;">
+                <ellipse cx="100" cy="55" rx="90" ry="45" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="440" stroke-dashoffset="440" stroke-linecap="round">
+                  <animate attributeName="stroke-dashoffset" from="440" to="0" dur="1.5s" begin="0.5s" fill="freeze"/>
+                </ellipse>
+                <text x="100" y="-2" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="600" font-size="18" fill="#000" opacity="0">
+                  Latest model releases
+                  <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="2s" fill="freeze"/>
+                </text>
+              </svg>
+            </div>
+            <div class="why-image-panel" data-panel="3" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:0.8cqw; opacity:0; transition:opacity 0.4s ease;">
+              <img src="public/Frontier Language Model Intelligence.png" alt="Frontier Language Model Intelligence" style="width:100%; height:100%; object-fit:contain;">
+              <svg class="pen-circle-overlay" viewBox="0 0 200 140" style="position:absolute; top:28%; right:10%; width:28%; height:30%; overflow:visible;">
+                <text x="100" y="-2" text-anchor="middle" font-family="Manrope,sans-serif" font-weight="600" font-size="16" fill="#000" opacity="0">
+                  ~10x change in 4 years
+                  <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="2s" fill="freeze"/>
+                </text>
+                <ellipse cx="100" cy="55" rx="90" ry="45" fill="none" stroke="#000" stroke-width="2.5" stroke-dasharray="440" stroke-dashoffset="440" stroke-linecap="round">
+                  <animate attributeName="stroke-dashoffset" from="440" to="0" dur="1.5s" begin="0.5s" fill="freeze"/>
+                </ellipse>
+              </svg>
+            </div>
+            <div class="why-image-panel" data-panel="4" style="position:absolute; top:0; left:0; width:100%; height:100%; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:2cqw; padding:2cqw; width:80%; left:10%; right:10%; opacity:0; transition:opacity 0.4s ease;">
+              <div style="background:#fff; border:1px solid #ccc; border-radius:0.5cqw; padding:1.5cqw 2cqw; display:flex; flex-direction:column; align-items:flex-start; gap:1.5cqw;">
+                <img src="public/Coinbase Logo.svg" alt="Coinbase" style="height:2.5cqw; width:auto;">
+                <div class="slide-case-title" style="font-size:1.5cqw;">Decreased Time from Intent to Production from 20-25 Days to 1.8 Days</div>
+                <div class="slide-box-desc" style="font-size:1.2cqw;">
+                  <div>&#8226; <b>Forge:</b> AI agents for code generation and PR review.</div>
+                  <div>&#8226; <b>SAIL:</b> AI agents for security and compliance review.</div>
+                  <div>&#8226; <b>/tracer-bullet:</b> Agent loop to automate idea to spec to production.</div>
+                </div>
+              </div>
+              <div style="background:#fff; border:1px solid #ccc; border-radius:0.5cqw; padding:1.5cqw 2cqw; display:flex; flex-direction:column; align-items:flex-start; gap:1.5cqw;">
+                <img src="public/Ramp Logo.svg" alt="Ramp" style="height:2.5cqw; width:auto;">
+                <div class="slide-case-title" style="font-size:1.5cqw;">Ramp Glass</div>
+                <div class="slide-box-desc" style="font-size:1.2cqw;">&#8226; Automated expense categorization and receipt matching using LLMs.</div>
+              </div>
+              <div style="background:#fff; border:1px solid #ccc; border-radius:0.5cqw; padding:1.5cqw 2cqw; display:flex; flex-direction:column; align-items:flex-start; gap:1.5cqw;">
+                <img src="public/Shopify Logo.svg" alt="Shopify" style="height:2.5cqw; width:auto;">
+                <div class="slide-case-title" style="font-size:1.5cqw;">Sidekick Assistant</div>
+                <div class="slide-box-desc" style="font-size:1.2cqw;">&#8226; Built an AI assistant for merchants to manage stores, analyze data, and automate tasks.</div>
+              </div>
+              <div style="background:#fff; border:1px solid #ccc; border-radius:0.5cqw; padding:1.5cqw 2cqw; display:flex; flex-direction:column; align-items:flex-start; gap:1.5cqw;">
+                <img src="public/Stripe Logo.svg" alt="Stripe" style="height:2.5cqw; width:auto;">
+                <div class="slide-case-title" style="font-size:1.5cqw;">Hundreds of Hours Saved for EPD Teams</div>
+                <div class="slide-box-desc" style="font-size:1.2cqw;">
+                  <div>&#8226; <b>Minions:</b> Internal AI coding agents.</div>
+                  <div>&#8226; <b>Protodash:</b> Prototyping studio for Design and Product teams.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         </div>
@@ -1271,6 +1399,48 @@
             <div class="slide-flow-node"><span class="slide-flow-num">7</span><span class="slide-flow-label">Human-in-the-Loop</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
             <div class="slide-flow-node"><span class="slide-flow-num">8</span><span class="slide-flow-label">Team Assembly</span></div>
+          </div>
+        </div>
+        <div id="flow-detail-panels">
+          <div class="flow-detail-panel active" data-node="0">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define the problem statement and success criteria</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Identify stakeholders and align on expected outcomes</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Map existing workflows to find automation opportunities</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="1">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Quantify time and cost savings from automation</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Benchmark against manual process baselines</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Project compounding returns over 6-12 months</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="2">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Strip the project to its simplest valuable version</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Identify the single highest-impact workflow to automate first</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Set a 2-week delivery target for the first iteration</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="3">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Audit data sources and assess quality and accessibility</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Build connectors to internal tools and databases</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Establish data pipelines for real-time or batch processing</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="4">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define data access policies and PII handling rules</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Implement authentication and role-based access controls</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Conduct security review and compliance audit</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="5">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Define evaluation criteria and quality benchmarks</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Build automated test suites for model outputs</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Compare model performance across cost, speed, and accuracy</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="6">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Design review and approval workflows for AI outputs</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Set escalation paths for low-confidence results</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Train team members on when to override vs. trust the model</span></div>
+          </div>
+          <div class="flow-detail-panel" data-node="7">
+            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text">Assign a project owner and cross-functional contributors</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Define roles for engineering, domain experts, and end users</span></div>
+            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Establish a feedback loop cadence for continuous improvement</span></div>
           </div>
         </div>
         </div>
@@ -1840,20 +2010,71 @@
       });
     })();
 
-    // Why statements carousel
+    // Why dropdown
     (function() {
-      var container = document.getElementById('why-statements');
-      if (!container) return;
-      var statements = container.querySelectorAll('.slide-statement');
-      var items = container.querySelectorAll('.slide-carousel-item');
-      statements.forEach(function(stmt) {
-        stmt.addEventListener('click', function() {
-          var idx = stmt.getAttribute('data-index');
-          statements.forEach(function(s) { s.classList.remove('active'); });
+      var dropdown = document.getElementById('why-dropdown');
+      if (!dropdown) return;
+      var selected = dropdown.querySelector('.slide-dropdown-selected');
+      var items = dropdown.querySelectorAll('.slide-dropdown-item');
+      var panels = document.querySelectorAll('.why-image-panel');
+      dropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+      items.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          selected.textContent = item.textContent;
           items.forEach(function(i) { i.classList.remove('active'); });
-          stmt.classList.add('active');
-          var target = container.querySelector('.slide-carousel-item[data-index="' + idx + '"]');
-          if (target) target.classList.add('active');
+          item.classList.add('active');
+          dropdown.classList.remove('open');
+          var val = item.getAttribute('data-value');
+          panels.forEach(function(p) { p.style.opacity = '0'; p.classList.remove('active'); });
+          var target = document.querySelector('.why-image-panel[data-panel="' + val + '"]');
+          if (target) {
+            target.style.opacity = '1';
+            target.classList.add('active');
+            // Restart SVG animations in this panel
+            var svgEl = target.querySelector('svg.pen-circle-overlay');
+            if (svgEl) {
+              var clone = svgEl.cloneNode(true);
+              svgEl.parentNode.replaceChild(clone, svgEl);
+            }
+          }
+        });
+      });
+      document.addEventListener('click', function() { dropdown.classList.remove('open'); });
+
+    })();
+
+    // Click to expand image panels
+    (function() {
+      var expandablePanels = document.querySelectorAll('.why-image-panel[data-panel="2"], .why-image-panel[data-panel="3"]');
+      expandablePanels.forEach(function(panel) {
+        panel.style.cursor = 'zoom-in';
+        panel.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+        panel.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (panel.classList.contains('expanded')) {
+            panel.classList.remove('expanded');
+            panel.style.cursor = 'zoom-in';
+            var slideClose = panel.closest('.slide');
+            if (slideClose) slideClose.classList.remove('image-expanded');
+          } else {
+            expandablePanels.forEach(function(p) { p.classList.remove('expanded'); p.style.cursor = 'zoom-in'; var s2 = p.closest('.slide'); if (s2) s2.classList.remove('image-expanded'); });
+            panel.classList.add('expanded');
+            panel.style.cursor = 'zoom-out';
+            var slide = panel.closest('.slide');
+            if (slide) slide.classList.add('image-expanded');
+          }
+        });
+      });
+      document.addEventListener('click', function() {
+        expandablePanels.forEach(function(p) {
+          p.classList.remove('expanded');
+          p.style.cursor = 'zoom-in';
+          var s = p.closest('.slide');
+          if (s) s.classList.remove('image-expanded');
         });
       });
     })();
@@ -1862,6 +2083,7 @@
     (function() {
       var nodes = document.querySelectorAll('.slide-flow-node');
       var chevrons = document.querySelectorAll('.slide-flow-chevron');
+      var detailPanels = document.querySelectorAll('.flow-detail-panel');
       nodes.forEach(function(node, idx) {
         node.addEventListener('click', function(e) {
           e.stopPropagation();
@@ -1872,6 +2094,8 @@
           node.classList.add('active');
           chevrons.forEach(function(c) { c.classList.remove('active-next'); });
           if (chevrons[idx]) chevrons[idx].classList.add('active-next');
+          detailPanels.forEach(function(p) { p.classList.remove('active'); });
+          if (detailPanels[idx]) detailPanels[idx].classList.add('active');
         });
       });
       // Set initial chevron for default active node 1
