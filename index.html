@@ -890,7 +890,10 @@
     transition: opacity 0.2s ease;
   }
   .slide-swivel-btn:hover {
-    opacity: 0.6;
+    opacity: 1;
+  }
+  .slide-swivel-btn:hover img {
+    filter: brightness(0) saturate(100%) invert(52%) sepia(89%) saturate(500%) hue-rotate(346deg) brightness(95%) !important;
   }
   .slide-swivel-text {
     position: relative;
@@ -1007,6 +1010,43 @@
     flex-shrink: 0;
     align-self: flex-start;
     transition: filter 0.2s ease;
+  }
+  #modality-toggle .slide-toggle-option,
+  #model-type-toggle .slide-toggle-option {
+    padding: 0.7cqw 0;
+  }
+  .modality-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    height: 100%;
+  }
+  .modality-inner svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .modality-inner span {
+    font-size: 11px;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    height: 11px;
+  }
+  .task-chip {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background: #fff;
+    color: #000;
+    cursor: default;
+    white-space: nowrap;
   }
   .slide-flow-chevron.active-next {
     filter: brightness(0) saturate(100%) invert(52%) sepia(89%) saturate(500%) hue-rotate(346deg) brightness(95%) !important;
@@ -1370,9 +1410,9 @@
           </div>
           <div class="why-image-area" style="flex:1; position:relative; margin-top:0.5cqw;">
             <div class="why-image-panel active" data-panel="0" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; gap:1.5cqw; padding:2cqw; border-radius:0.8cqw; opacity:1; transition:opacity 0.4s ease;">
-              <a href="https://dora.dev/ai/roi/calculator/#staff_size=500&salary=176000&revenue=100000000&downtime_cost_per_hour=100000&current_deployments_per_year=50&current_features_per_year=50&idea_success_rate=0.33&revenue_impact_per_feature=0.005&current_cfr=0.05&current_fdrt=4&time_saved_per_developer=0.125&ai_license_cost_per_user=250&additional_ai_cost_per_user=80&additional_ai_infra_cost=100000&training_cost_per_user=9600&target_deployments_per_year=56&target_features_per_year=56&target_cfr=0.06&j_curve_drop=0.15&j_curve_duration=3" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/DORA Logo.svg" alt="DORA" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.3cqw; flex:1;"><b>Potential ROI for Adopting AI:</b> Even after taking into account J-Curve costs, AI can deliver payback within 1-2 years.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
-              <a href="https://arxiv.org/html/2607.08920v1" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/MIT Logo.svg" alt="MIT" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.3cqw; flex:1;"><b>AI Adoption & Tobin's Q:</b> Technology firms with deep AI integration outperform low adopters by ~2x in operating efficiency and growth potential.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
-              <a href="https://www.forbes.com/sites/paulbaier/2026/03/31/ai-native-firms-lead-in-revenue-per-employee/" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/Redpoint Logo.svg" alt="Redpoint" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.3cqw; flex:1;"><b>AI-Native Firms Lead in Revenue per Employee:</b> Achieved through PLG, AI-automated customer service and lead generation.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+              <a href="https://dora.dev/ai/roi/calculator/#staff_size=500&salary=176000&revenue=100000000&downtime_cost_per_hour=100000&current_deployments_per_year=50&current_features_per_year=50&idea_success_rate=0.33&revenue_impact_per_feature=0.005&current_cfr=0.05&current_fdrt=4&time_saved_per_developer=0.125&ai_license_cost_per_user=250&additional_ai_cost_per_user=80&additional_ai_infra_cost=100000&training_cost_per_user=9600&target_deployments_per_year=56&target_features_per_year=56&target_cfr=0.06&j_curve_drop=0.15&j_curve_duration=3" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/DORA Logo.svg" alt="DORA" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.6cqw; flex:1;"><b>Potential ROI for Adopting AI:</b> Even after taking into account J-Curve costs, AI can deliver payback within 1-2 years.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+              <a href="https://arxiv.org/html/2607.08920v1" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/MIT Logo.svg" alt="MIT" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.6cqw; flex:1;"><b>AI Adoption & Tobin's Q:</b> Technology firms with deep AI integration outperform low adopters by ~2x in operating efficiency and growth potential.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
+              <a href="https://www.forbes.com/sites/paulbaier/2026/03/31/ai-native-firms-lead-in-revenue-per-employee/" target="_blank" class="case-card" style="display:flex; align-items:center; gap:2cqw; border:1px solid #ccc; border-radius:1cqw; padding:1.5cqw 2cqw; background:#fff; text-decoration:none; color:inherit;"><img src="public/Redpoint Logo.svg" alt="Redpoint" style="height:4cqw; width:auto; flex-shrink:0;"><div class="slide-box-desc" style="font-size:1.6cqw; flex:1;"><b>AI-Native Firms Lead in Revenue per Employee:</b> Achieved through PLG, AI-automated customer service and lead generation.</div><span class="case-card-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span></a>
             </div>
             <div class="why-image-panel" data-panel="1" style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; align-items:center; justify-content:center; border-radius:0.8cqw; opacity:0; transition:opacity 0.4s ease;">
               <img src="public/Intelligence vs. Cost.png" alt="Intelligence vs. Cost" style="width:100%; height:100%; object-fit:contain;">
@@ -1442,11 +1482,11 @@
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
             <div class="slide-flow-node"><span class="slide-flow-num">4</span><span class="slide-flow-label">Data, Security & Governance</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">6</span><span class="slide-flow-label">LLM Evals & Human Review</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">5</span><span class="slide-flow-label">LLM Evals & Human Review</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">7</span><span class="slide-flow-label">Build & Pilot</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">6</span><span class="slide-flow-label">Build & Pilot</span></div>
             <img class="slide-flow-chevron" src="public/Chevron Right.svg" style="filter: brightness(0) invert(1) brightness(0.91);">
-            <div class="slide-flow-node"><span class="slide-flow-num">8</span><span class="slide-flow-label">Measurement & Iteration</span></div>
+            <div class="slide-flow-node"><span class="slide-flow-num">7</span><span class="slide-flow-label">Measurement & Iteration</span></div>
           </div>
         </div>
         <div id="flow-detail-panels">
@@ -1469,7 +1509,7 @@
               <!-- Quadrants -->
               <div style="display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; flex:1; gap:0;">
                 <div style="border-right:1px dashed #ddd; border-bottom:1px dashed #ddd; display:flex; align-items:center; justify-content:center; padding:1cqw;">
-                  <div style="text-align:center;"><div style="font-family:'Instrument Serif',serif; font-size:2.5cqw; color:#EB7422; font-weight:400;">Quick Wins</div><div style="font-family:'Manrope',sans-serif; font-size:1.4cqw; color:rgba(0,0,0,0.6); margin-top:0.5cqw;">Define narrow scope with a targeted task within a high-value workflow</div></div>
+                  <div style="text-align:center;"><div style="font-family:'Instrument Serif',serif; font-size:2.5cqw; color:#EB7422; font-weight:400;">Quick Wins</div><div style="font-family:'Manrope',sans-serif; font-size:1.7cqw; color:rgba(0,0,0,0.6); margin-top:0.5cqw;">Define narrow scope with a targeted task within a high-value workflow</div></div>
                 </div>
                 <div style="border-bottom:1px dashed #ddd; display:flex; align-items:center; justify-content:center; padding:1cqw;">
                   <span style="font-family:'Instrument Serif',serif; font-size:2.5cqw; color:#666;">Major Projects</span>
@@ -1503,38 +1543,133 @@
             <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text">Set escalation paths for low-confidence results</span></div>
             <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text">Train team members on when to override vs. trust the model</span></div>
           </div>
-          <div class="flow-detail-panel" data-node="7">
-            <div class="flow-detail-item"><span class="flow-detail-num">1</span><span class="flow-detail-text"></span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">2</span><span class="flow-detail-text"></span></div>
-            <div class="flow-detail-item"><span class="flow-detail-num">3</span><span class="flow-detail-text"></span></div>
-          </div>
         </div>
         </div>
         <span class="slide-number">3</span>
       </div>
 
       <div class="slide slide-flex">
-        <div class="slide-title slide-title-full">Adoption Team Goals</div>
+        <div class="slide-title slide-title-full">Adoption Team Examples</div>
         <div class="slide-content-top">
         <div class="slide-toggle-wrap" style="margin-top:2cqw;">
           <div id="goals-toggle" class="slide-toggle slide-toggle-goals" style="width:100%;">
-            <div class="slide-toggle-option active" data-target="growth">Growth</div>
-            <div class="slide-toggle-option" data-target="people">People</div>
-            <div class="slide-toggle-option" data-target="legal">Legal</div>
-            <div class="slide-toggle-option" data-target="finance">Finance</div>
+            <div class="slide-toggle-option active" data-target="growth">🎵 Growth</div>
+            <div class="slide-toggle-option" data-target="people">💼 People</div>
+            <div class="slide-toggle-option" data-target="legal">⚖️ Legal</div>
+            <div class="slide-toggle-option" data-target="finance">🧾 Finance</div>
             <span class="slide-toggle-slider"></span>
           </div>
           <div id="goals-panel-growth" class="slide-toggle-panel active" style="display:block; flex:1;">
-            <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">Growth goals and initiatives will be displayed here.</div>
+            <div style="display:flex; gap:3cqw; margin-top:2cqw;">
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Workflows</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Campaign brief generation from product updates</div>
+                  <div>&#8226; Creator outreach personalization at scale</div>
+                  <div>&#8226; Community sentiment analysis from social channels</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Tasks</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Draft social copy and email sequences</div>
+                  <div>&#8226; Summarize creator feedback into actionable insights</div>
+                  <div>&#8226; Auto-tag and categorize inbound creator requests</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Metrics</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Time saved per campaign cycle</div>
+                  <div>&#8226; Creator response rate improvement</div>
+                  <div>&#8226; Volume of campaigns shipped per quarter</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="goals-panel-people" class="slide-toggle-panel">
-            <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">People goals and initiatives will be displayed here.</div>
+            <div style="display:flex; gap:3cqw; margin-top:2cqw;">
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Workflows</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Resume screening and candidate ranking</div>
+                  <div>&#8226; Onboarding document generation</div>
+                  <div>&#8226; Employee FAQ and policy Q&A chatbot</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Tasks</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Draft job descriptions from role specs</div>
+                  <div>&#8226; Summarize interview feedback across panels</div>
+                  <div>&#8226; Generate onboarding checklists per role</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Metrics</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Time-to-hire reduction</div>
+                  <div>&#8226; Onboarding completion speed</div>
+                  <div>&#8226; HR ticket resolution time</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="goals-panel-legal" class="slide-toggle-panel">
-            <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">Legal goals and initiatives will be displayed here.</div>
+            <div style="display:flex; gap:3cqw; margin-top:2cqw;">
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Workflows</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Contract review and clause flagging</div>
+                  <div>&#8226; Compliance document drafting</div>
+                  <div>&#8226; IP and licensing risk assessment</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Tasks</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Extract key terms from vendor agreements</div>
+                  <div>&#8226; Compare contract versions and highlight changes</div>
+                  <div>&#8226; Draft first-pass privacy policy updates</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Metrics</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Contract review turnaround time</div>
+                  <div>&#8226; Non-standard clause detection rate</div>
+                  <div>&#8226; Hours saved on compliance documentation</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div id="goals-panel-finance" class="slide-toggle-panel">
-            <div class="slide-box-desc" style="font-size:2cqw; margin-top:1cqw;">Finance goals and initiatives will be displayed here.</div>
+            <div style="display:flex; gap:3cqw; margin-top:2cqw;">
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Workflows</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Expense report categorization and anomaly detection</div>
+                  <div>&#8226; Invoice processing and matching</div>
+                  <div>&#8226; Budget variance analysis and forecasting</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Tasks</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Auto-categorize transactions against chart of accounts</div>
+                  <div>&#8226; Generate monthly close summaries from raw data</div>
+                  <div>&#8226; Flag duplicate or unusual vendor payments</div>
+                </div>
+              </div>
+              <div style="flex:1; padding:2cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0;">Metrics</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:0.8cqw;">
+                  <div>&#8226; Monthly close cycle time reduction</div>
+                  <div>&#8226; Expense categorization accuracy</div>
+                  <div>&#8226; Cost savings from automated invoice processing</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         </div>
@@ -1568,23 +1703,96 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">System Prompt</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">A foundational set of hidden instructions given to an LLM that defines its role, behavior, and output format.</div>
+                <div class="slide-box-desc" style="font-size:1.7cqw;">A foundational set of hidden instructions given to an LLM that defines its role, behavior, and output format.</div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">User Prompt</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">The visible input a user provides to the LLM — the question, task, or instruction that drives the conversation.</div>
+                <div class="slide-box-desc" style="font-size:1.7cqw;">The visible input a user provides to the LLM — the question, task, or instruction that drives the conversation.</div>
               </div>
             </div>
           </div>
-          <div class="slide-swivel-panel" data-panel="1">
-            <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Type of Task</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;"></div>
+          <div class="slide-swivel-panel" data-panel="1" style="flex-direction:column; justify-content:center;">
+            <div class="slide-box-desc" style="font-size:1.6cqw; margin-top:2cqw; text-align:center;">The right model depends on the type of task and its complexity. There is a <b style="color:#EB7422;">fundamental tradeoff</b> between cost / latency and output accuracy / complexity.</div>
+            <hr style="border:none; height:1px; background:#e0e0e0; margin:1.5cqw 0 0 0;">
+            <div style="display:flex; gap:3cqw; margin-top:1.5cqw; flex:1; align-items:stretch;">
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div style="display:flex; align-items:center; gap:1.5cqw; flex-wrap:nowrap;">
+                  <div class="slide-case-title" style="font-size:2.2cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0; white-space:nowrap;">Type of Task</div>
+                  <div id="modality-toggle" class="slide-toggle slide-toggle-goals" style="width:35cqw; padding:0; background:#e8e8e8; border-radius:2cqw;">
+                    <div class="slide-toggle-option active" data-modality="text"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg><span>Text</span></div></div>
+                    <div class="slide-toggle-option" data-modality="image"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Image</span></div></div>
+                    <div class="slide-toggle-option" data-modality="video"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Video</span></div></div>
+                    <div class="slide-toggle-option" data-modality="audio"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg><span>Audio</span></div></div>
+                    <span class="slide-toggle-slider" style="width:25%;"></span>
+                  </div>
+                </div>
+                <div class="slide-dropdown" id="task-type-dropdown" style="font-size:1.2cqw; margin-top:0.5cqw; border:none; background:transparent; padding:0;">
+                  <span class="slide-dropdown-selected" style="font-size:1.6cqw;">General</span>
+                  <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
+                  <div class="slide-dropdown-menu">
+                    <div class="slide-dropdown-item active" data-value="general">General</div>
+                    <div class="slide-dropdown-item" data-value="agent">Agent</div>
+                    <div class="slide-dropdown-item" data-value="coding">Coding</div>
+                    <div class="slide-dropdown-item" data-value="data">Data Extraction</div>
+                  </div>
+                </div>
+                <div id="task-panel-general" class="task-type-panel" style="display:flex; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Classification</span>
+                  <span class="task-chip">Content Writing</span>
+                  <span class="task-chip">Knowledge</span>
+                  <span class="task-chip">Summarization</span>
+                  <span class="task-chip">Customer Support</span>
+                  <span class="task-chip">Research & Reports</span>
+                </div>
+                <div id="task-panel-agent" class="task-type-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Workflow Execution</span>
+                  <span class="task-chip">Multi-Step Planning</span>
+                  <span class="task-chip">Web Search</span>
+                  <span class="task-chip">Tool Dispatch</span>
+                  <span class="task-chip">Memory Extract</span>
+                </div>
+                <div id="task-panel-coding" class="task-type-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Code Generation</span>
+                  <span class="task-chip">Debugging</span>
+                  <span class="task-chip">Repo Scanning</span>
+                  <span class="task-chip">Code Review</span>
+                  <span class="task-chip">Frontend & UI</span>
+                  <span class="task-chip">SQL & Database</span>
+                  <span class="task-chip">File Input/Output</span>
+                </div>
+                <div id="task-panel-data" class="task-type-panel" style="display:none; flex-wrap:wrap; gap:0.5cqw; margin-top:0.8cqw;">
+                  <span class="task-chip">Data Extraction</span>
+                  <span class="task-chip">Data Transformation</span>
+                </div>
               </div>
-              <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
-                <div class="slide-case-title" style="font-size:2.75cqw;">Type of Model</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;"></div>
+              <div style="width:1px; background:#e0e0e0; flex-shrink:0;"></div>
+              <div style="flex:1; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
+                <div style="display:flex; align-items:center; gap:1.5cqw; flex-wrap:nowrap;">
+                  <div class="slide-case-title" style="font-size:2.2cqw; padding-bottom:0.8cqw; border-bottom:1px solid #e0e0e0; white-space:nowrap;">Type of Model</div>
+                  <div id="model-type-toggle" class="slide-toggle" style="width:28cqw; padding:0; background:#e8e8e8; border-radius:2cqw;">
+                    <div class="slide-toggle-option active" data-model="proprietary" style="white-space:nowrap;"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Proprietary</span></div></div>
+                    <div class="slide-toggle-option" data-model="opensource" style="white-space:nowrap;"><div class="modality-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v4M12 19v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M1 12h4M19 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg><span>Open Source</span></div></div>
+                    <span class="slide-toggle-slider"></span>
+                  </div>
+                </div>
+                <div class="slide-dropdown model-provider-dropdown" id="model-proprietary-dropdown" style="font-size:1.2cqw; margin-top:0.5cqw; border:none; background:transparent; padding:0;">
+                  <span class="slide-dropdown-selected" style="font-size:1.6cqw; display:flex; align-items:center; gap:0.5cqw;"><img src="public/Anthropic Logo.svg" style="height:1.2cqw; width:auto;">Anthropic</span>
+                  <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
+                  <div class="slide-dropdown-menu">
+                    <div class="slide-dropdown-item active" data-value="anthropic" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Anthropic Logo.svg" style="height:1.2cqw; width:auto;">Anthropic</div>
+                    <div class="slide-dropdown-item" data-value="openai" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/OpenAI Logo.svg" style="height:1.2cqw; width:auto;">OpenAI</div>
+                    <div class="slide-dropdown-item" data-value="gemini" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Gemini Logo.svg" style="height:1.2cqw; width:auto;">Gemini</div>
+                  </div>
+                </div>
+                <div class="slide-dropdown model-provider-dropdown" id="model-opensource-dropdown" style="font-size:1.2cqw; margin-top:0.5cqw; border:none; background:transparent; padding:0; display:none;">
+                  <span class="slide-dropdown-selected" style="font-size:1.6cqw; display:flex; align-items:center; gap:0.5cqw;"><img src="public/Kimi Logo.svg" style="height:1.2cqw; width:auto;">Moonshot AI</span>
+                  <span class="slide-dropdown-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><polyline points="4,8 12,18 20,8"/></svg></span>
+                  <div class="slide-dropdown-menu">
+                    <div class="slide-dropdown-item active" data-value="moonshot" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Kimi Logo.svg" style="height:1.2cqw; width:auto;">Moonshot AI</div>
+                    <div class="slide-dropdown-item" data-value="deepseek" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/DeepSeek Logo.svg" style="height:1.2cqw; width:auto;">DeepSeek</div>
+                    <div class="slide-dropdown-item" data-value="zai" style="display:flex; align-items:center; gap:0.5cqw;"><img src="public/Z.AI Logo.svg" style="height:1.2cqw; width:auto;">Z.AI</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1592,7 +1800,7 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Type of Memory</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Short-term:</b> Conversation history within a single session.</div>
                   <div><b>Long-term:</b> Persistent knowledge stored across sessions (e.g., CLAUDE.md, vector stores).</div>
                   <div><b>External:</b> Connected data sources — CRM, docs, Slack, meeting transcripts.</div>
@@ -1600,7 +1808,7 @@
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Managing Context</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Context windows:</b> How much information a model can process at once (varies by model).</div>
                   <div><b>Retrieval (RAG):</b> Pull relevant information from large datasets on demand.</div>
                   <div><b>Summarization:</b> Compress long conversations to fit within context limits.</div>
@@ -1612,14 +1820,14 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">What Are Skills?</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div>Reusable instructions that teach an AI agent <b>how</b> to perform a specific task consistently.</div>
                   <div>Skills encode team knowledge — style guides, review checklists, data formats — into repeatable prompts.</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Examples at Suno</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Legal:</b> Contract review skill that flags non-standard clauses.</div>
                   <div><b>Growth:</b> Campaign brief generator from a few bullet points.</div>
                   <div><b>Finance:</b> Expense categorization skill aligned to internal taxonomy.</div>
@@ -1631,7 +1839,7 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Tool Integrations</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>MCP Servers:</b> Connect AI agents to internal tools — Slack, Google Drive, CRM, databases.</div>
                   <div><b>APIs:</b> Expose internal services so agents can read/write data programmatically.</div>
                   <div><b>Webhooks:</b> Trigger AI workflows from events in existing systems.</div>
@@ -1639,7 +1847,7 @@
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Evaluation Criteria</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Security:</b> Does the tool meet Suno's data handling and access policies?</div>
                   <div><b>Cost:</b> Per-seat vs. usage-based — what's the ROI at our scale?</div>
                   <div><b>Risk:</b> What happens if the tool goes down or the vendor changes terms?</div>
@@ -1651,14 +1859,14 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Why Validate?</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div>AI outputs can be confident and wrong — especially for legal, financial, and compliance tasks.</div>
                   <div>Validation catches hallucinations, formatting errors, and missed edge cases before they reach users.</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">How to Validate</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Human-in-the-loop:</b> Review and approve AI outputs before they go live.</div>
                   <div><b>Automated checks:</b> Schema validation, keyword matching, confidence thresholds.</div>
                   <div><b>A/B testing:</b> Compare AI-generated vs. manual outputs on real tasks.</div>
@@ -1670,7 +1878,7 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Iterative Refinement</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Prompt tuning:</b> Adjust instructions based on failure patterns and edge cases.</div>
                   <div><b>Feedback loops:</b> Collect user feedback to improve prompts and workflows weekly.</div>
                   <div><b>Version control:</b> Track prompt and skill changes over time.</div>
@@ -1678,7 +1886,7 @@
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">LLM Evals</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Accuracy:</b> Does the output match the expected result on a test set?</div>
                   <div><b>Cost/speed:</b> Compare models on latency and token cost for each task.</div>
                   <div><b>Regression testing:</b> Ensure new prompts don't break existing workflows.</div>
@@ -1690,7 +1898,7 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Usage & Costs</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Tracking:</b> Monitor per-team and per-tool AI usage to understand adoption patterns.</div>
                   <div><b>Budgeting:</b> Set per-seat and per-project spend limits; review monthly.</div>
                   <div><b>ROI:</b> Tie AI spend to measurable outcomes — hours saved, tasks automated, errors reduced.</div>
@@ -1698,7 +1906,7 @@
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Safety Guardrails</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Data policies:</b> Define what data can and cannot be sent to external models.</div>
                   <div><b>Access controls:</b> Role-based permissions for AI tools and connectors.</div>
                   <div><b>Guidelines:</b> Clear, practical AI usage guidelines — what's encouraged, what requires review.</div>
@@ -1710,7 +1918,7 @@
             <div style="display:flex; gap:3cqw; margin-top:2cqw; flex:1; align-items:stretch;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Tracking Usage</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Per-team dashboards:</b> Monitor which teams use AI most and where adoption lags.</div>
                   <div><b>Tool-level metrics:</b> Token consumption, API calls, and active users per tool.</div>
                   <div><b>Adoption signals:</b> Track repeat usage, not just sign-ups — are people actually using it?</div>
@@ -1718,7 +1926,7 @@
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw; display:flex; flex-direction:column; gap:1cqw;">
                 <div class="slide-case-title" style="font-size:2.75cqw;">Managing Costs</div>
-                <div class="slide-box-desc" style="font-size:1.4cqw;">
+                <div class="slide-box-desc" style="font-size:1.7cqw;">
                   <div><b>Model routing:</b> Use cheaper models for simple tasks, reserve expensive models for complex ones.</div>
                   <div><b>Spend limits:</b> Set monthly budgets per team and alert before overruns.</div>
                   <div><b>Open-source models:</b> Self-host where possible to reduce per-query costs at scale.</div>
@@ -1744,24 +1952,24 @@
           <div id="timeline-panel-30days" class="slide-toggle-panel active" style="display:block; flex:1;">
             <div style="display:flex; gap:3cqw; margin-top:2cqw;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Embed & Discover</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Embed & Discover</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Embed with Growth, People, Legal, and Finance teams</div>
                   <div>&#8226; Map existing workflows and identify top pain points</div>
                   <div>&#8226; Build trust and understand how each team actually works</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Quick Wins</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Quick Wins</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Ship 1-2 lightweight AI prototypes for highest-impact workflows</div>
                   <div>&#8226; Run first AI training session for early adopters</div>
                   <div>&#8226; Draft initial AI usage guidelines with IT and leadership</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Foundation</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Foundation</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Evaluate and vet initial AI tools with Leverage team</div>
                   <div>&#8226; Set up usage tracking baseline</div>
                   <div>&#8226; Establish feedback loop cadence with each team</div>
@@ -1772,24 +1980,24 @@
           <div id="timeline-panel-60days" class="slide-toggle-panel">
             <div style="display:flex; gap:3cqw; margin-top:2cqw;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Scale Solutions</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Scale Solutions</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Harden prototypes into production-ready tools</div>
                   <div>&#8226; Partner with engineering for deeper integrations</div>
                   <div>&#8226; Expand to 3-5 active AI workflows across teams</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Training Rollout</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Training Rollout</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Launch company-wide AI training program</div>
                   <div>&#8226; Create role-specific prompt guides and skill libraries</div>
                   <div>&#8226; Run hands-on workshops: prompting, model selection, safety</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Governance</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Governance</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Finalize AI usage guidelines and publish internally</div>
                   <div>&#8226; Implement cost tracking per team and per tool</div>
                   <div>&#8226; First ROI report: hours saved, tasks automated, adoption rates</div>
@@ -1800,24 +2008,24 @@
           <div id="timeline-panel-90days" class="slide-toggle-panel">
             <div style="display:flex; gap:3cqw; margin-top:2cqw;">
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Measurable Impact</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Measurable Impact</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Quantify business outcomes: efficiency gains, cost savings, error reduction</div>
                   <div>&#8226; Present ROI dashboard to leadership</div>
                   <div>&#8226; Identify next wave of high-impact use cases</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Culture & Adoption</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Culture & Adoption</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; AI champions identified in each team — self-sustaining adoption</div>
                   <div>&#8226; Regular AI office hours and skill-sharing sessions</div>
                   <div>&#8226; AI usage becomes part of daily workflows, not a special project</div>
                 </div>
               </div>
               <div style="flex:1; border:1px solid #e0e0e0; border-radius:0.8cqw; padding:2cqw;">
-                <div class="slide-case-title" style="font-size:1.8cqw; margin-bottom:1cqw;">Build the Roadmap</div>
-                <div class="slide-box-desc" style="font-size:1.3cqw;">
+                <div class="slide-case-title" style="font-size:2.75cqw; margin-bottom:1cqw;">Build the Roadmap</div>
+                <div class="slide-box-desc" style="font-size:1.6cqw;">
                   <div>&#8226; Propose team expansion based on proven demand</div>
                   <div>&#8226; Define Q2+ roadmap: deeper integrations, advanced agents, new teams</div>
                   <div>&#8226; Shape long-term AI strategy with leadership — guardrails, cost, and scale</div>
@@ -2325,6 +2533,113 @@
       });
       document.addEventListener('click', function() { dropdown.classList.remove('open'); });
 
+    })();
+
+    // Model provider dropdowns
+    (function() {
+      ['model-proprietary-dropdown', 'model-opensource-dropdown'].forEach(function(id) {
+        var dropdown = document.getElementById(id);
+        if (!dropdown) return;
+        var selected = dropdown.querySelector('.slide-dropdown-selected');
+        var items = dropdown.querySelectorAll('.slide-dropdown-item');
+        dropdown.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdown.classList.toggle('open');
+        });
+        items.forEach(function(item) {
+          item.addEventListener('click', function(e) {
+            e.stopPropagation();
+            selected.innerHTML = item.innerHTML;
+            items.forEach(function(i) { i.classList.remove('active'); });
+            item.classList.add('active');
+            dropdown.classList.remove('open');
+          });
+        });
+        document.addEventListener('click', function() { dropdown.classList.remove('open'); });
+      });
+    })();
+
+    // Model type toggle
+    (function() {
+      var toggle = document.getElementById('model-type-toggle');
+      if (!toggle) return;
+      var options = toggle.querySelectorAll('.slide-toggle-option');
+      var propDropdown = document.getElementById('model-proprietary-dropdown');
+      var osDropdown = document.getElementById('model-opensource-dropdown');
+      options.forEach(function(opt, idx) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          options.forEach(function(o) { o.classList.remove('active'); });
+          opt.classList.add('active');
+          toggle.classList.remove('future');
+          if (idx === 1) toggle.classList.add('future');
+          if (idx === 0) { propDropdown.style.display = ''; osDropdown.style.display = 'none'; }
+          else { propDropdown.style.display = 'none'; osDropdown.style.display = ''; }
+        });
+      });
+    })();
+
+    // Modality toggle
+    (function() {
+      var toggle = document.getElementById('modality-toggle');
+      if (!toggle) return;
+      var options = toggle.querySelectorAll('.slide-toggle-option');
+      var taskDropdown = document.getElementById('task-type-dropdown');
+      var taskPanels = document.querySelectorAll('.task-type-panel');
+      options.forEach(function(opt, idx) {
+        opt.addEventListener('click', function(e) {
+          e.stopPropagation();
+          options.forEach(function(o) { o.classList.remove('active'); });
+          opt.classList.add('active');
+          toggle.classList.remove('pos-1', 'pos-2', 'pos-3');
+          if (idx === 1) toggle.classList.add('pos-1');
+          if (idx === 2) toggle.classList.add('pos-2');
+          if (idx === 3) toggle.classList.add('pos-3');
+          // Show dropdown and panels only for Text (idx 0)
+          if (idx === 0) {
+            taskDropdown.style.display = '';
+            // Reset to General
+            var generalPanel = document.getElementById('task-panel-general');
+            taskPanels.forEach(function(p) { p.style.display = 'none'; });
+            if (generalPanel) generalPanel.style.display = 'flex';
+            var dropdownSelected = taskDropdown.querySelector('.slide-dropdown-selected');
+            if (dropdownSelected) dropdownSelected.textContent = 'General';
+            var dropdownItems = taskDropdown.querySelectorAll('.slide-dropdown-item');
+            dropdownItems.forEach(function(i) { i.classList.remove('active'); });
+            if (dropdownItems[0]) dropdownItems[0].classList.add('active');
+          } else {
+            taskDropdown.style.display = 'none';
+            taskPanels.forEach(function(p) { p.style.display = 'none'; });
+          }
+        });
+      });
+    })();
+
+    // Task type dropdown
+    (function() {
+      var dropdown = document.getElementById('task-type-dropdown');
+      if (!dropdown) return;
+      var selected = dropdown.querySelector('.slide-dropdown-selected');
+      var items = dropdown.querySelectorAll('.slide-dropdown-item');
+      var panels = document.querySelectorAll('.task-type-panel');
+      dropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+      });
+      items.forEach(function(item) {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          selected.textContent = item.textContent;
+          items.forEach(function(i) { i.classList.remove('active'); });
+          item.classList.add('active');
+          dropdown.classList.remove('open');
+          var val = item.getAttribute('data-value');
+          panels.forEach(function(p) { p.style.display = 'none'; });
+          var target = document.getElementById('task-panel-' + val);
+          if (target) target.style.display = 'flex';
+        });
+      });
+      document.addEventListener('click', function() { dropdown.classList.remove('open'); });
     })();
 
     // Click to expand image panels
